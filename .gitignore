@@ -56,3 +56,4 @@ build
 
 # Ignore Docker env file
 docker.env
+java_pid33391.hprof
