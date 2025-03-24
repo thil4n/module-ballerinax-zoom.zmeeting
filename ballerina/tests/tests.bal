@@ -18,10 +18,9 @@ import ballerina/http;
 import ballerina/io;
 import ballerina/test;
 
-configurable boolean isLive = false;
-configurable string clientId = "testClientId";
-configurable string clientSecret = "testClientSecret";
-configurable string refreshToken = "testRefreshToken";
+configurable string clientId = ?;
+configurable string clientSecret = ?;
+configurable string refreshToken = ?;
 
 string serviceUrl = "https://api.zoom.us/v2/";
 
