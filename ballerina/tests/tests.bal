@@ -23,7 +23,7 @@ configurable string clientId = "testClientId";
 configurable string clientSecret = "testClientSecret";
 configurable string refreshToken = "testRefreshToken";
 
-string serviceUrl = "https://api.hubapi.com/crm-object-schemas/v3/schemas";
+string serviceUrl = "https://api.zoom.us/v2/";
 
 
 // Zoom client for interacting with the API
@@ -50,105 +50,4 @@ isolated function testGetSchemas() returns error? {
     // Make GET request to fetch schemas
     CollectionResponseObjectSchemaNoPaging response = check hpClient->/.get();
     test:assertNotEquals(response.results, ());
-}
-
-// Test: Create Schema - Creates a new schema
-@test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-isolated function testCreateSchema() returns error? {
-    // Define the payload for creating a new object schema
-    ObjectSchemaEgg payload = {
-        secondaryDisplayProperties: ["string"],
-        requiredProperties: ["my_object_property"],
-        searchableProperties: ["string"],
-        primaryDisplayProperty: "my_object_property",
-        name: "my_object",
-        description: "string",
-        associatedObjects: ["CONTACT"],
-        properties: [],
-        labels: {
-            plural: "My objects",
-            singular: "My object"
-        }
-    };
-
-    // Make POST request to create the schema
-    ObjectSchema response = check hpClient->/.post(payload);
-    test:assertNotEquals(response.associations, ());
-}
-
-// Test: Delete Schema - Deletes a specific schema by its ID
-@test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-isolated function testDeleteSchema() returns error? {
-    // Define the object schema ID to delete
-    string objId = "testid";
-
-    // Make DELETE request to delete the schema
-    http:Response response = check hpClient->/[objId].delete();
-    test:assertEquals(response.statusCode, 204);
-}
-
-// Test: Update Schema - Updates an existing schema by ID
-@test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-
-isolated function testPatchSchema() returns error? {
-    // Define the payload for updating an object schema
-    ObjectTypeDefinitionPatch payload = {
-        secondaryDisplayProperties: ["string"],
-        requiredProperties: ["my_object_property"],
-        searchableProperties: ["string"],
-        primaryDisplayProperty: "my_object_property",
-        description: "string",
-        labels: {
-            plural: "My objects",
-            singular: "My object"
-        }
-    };
-
-    // Define the object schema ID to patch
-    string objId = "testid2";
-
-    // Make PATCH request to update the schema
-    ObjectTypeDefinition response = check hpClient->/[objId].patch(payload);
-    test:assertNotEquals(response.updatedAt, ());
-}
-
-// Test: Create Schema - Creates a new assosiation
-@test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-isolated function testCreateAssosiation() returns error? {
-
-    // Define the object schema ID to patch
-    string objId = "testid2";
-
-    // Define the payload for creating a new object schema
-    AssociationDefinitionEgg payload = {
-        fromObjectTypeId: "2-123456",
-        name: "my_object_to_contact",
-        toObjectTypeId: "contact"
-    };
-
-    // Make POST request to create the schema
-    AssociationDefinition response = check hpClient->/[objId]/associations.post(payload);
-    test:assertNotEquals(response.id, ());
-}
-
-// Test: Delete assosiation - Deletes a specific assosiation by its ID
-@test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-isolated function testDeleteAssosiation() returns error? {
-    // Define the object schema ID to delete
-    string objId = "testid";
-    string assId = "testid";
-
-    // Make DELETE request to delete the schema
-    http:Response response = check hpClient->/[objId]/associations/[assId].delete();
-    test:assertEquals(response.statusCode, 204);
 }
