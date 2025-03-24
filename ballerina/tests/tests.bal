@@ -29,8 +29,8 @@ OAuth2RefreshTokenGrantConfig auth = {
     clientId,
     clientSecret,
     refreshToken,
-    credentialBearer: oauth2:POST_BODY_BEARER,
-    };
+    credentialBearer: oauth2:POST_BODY_BEARER
+};
 
 // Global Client configuration for HTTP communication
 ConnectionConfig config = {
