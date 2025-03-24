@@ -16,6 +16,7 @@
 
 import ballerina/http;
 import ballerina/io;
+import ballerina/oauth2;
 import ballerina/test;
 
 configurable string clientId = ?;
@@ -24,6 +25,19 @@ configurable string refreshToken = ?;
 
 string serviceUrl = "https://api.zoom.us/v2/";
 
+OAuth2RefreshTokenGrantConfig auth = {
+    clientId,
+    clientSecret,
+    refreshToken,
+    credentialBearer: oauth2:POST_BODY_BEARER,
+    };
+
+// Global Client configuration for HTTP communication
+ConnectionConfig config = {
+    httpVersion: http:HTTP_2_0,
+    timeout: 60,
+    auth: auth
+};
 
 // Zoom client for interacting with the API
 final Client zoomClient;
@@ -41,12 +55,3 @@ function beforeGroups1() {
     io:println("I'm the before groups function!");
 }
 
-// Test: Get Schema - Fetches a list of object schemas
-@test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-isolated function testGetSchemas() returns error? {
-    // Make GET request to fetch schemas
-    CollectionResponseObjectSchemaNoPaging response = check hpClient->/.get();
-    test:assertNotEquals(response.results, ());
-}

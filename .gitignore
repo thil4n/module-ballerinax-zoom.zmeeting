@@ -58,3 +58,4 @@ build
 docker.env
 
 *.hprof
+story.md
