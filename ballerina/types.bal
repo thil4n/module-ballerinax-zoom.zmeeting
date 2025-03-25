@@ -8002,6 +8002,11 @@ public type WebinarRegistrant record {
     *WebinarRegistrantAllOf1;
     *WebinarRegistrantWebinarRegistrantAllOf12;
     *WebinarRegistrantWebinarRegistrantWebinarRegistrantAllOf123;
+    # The registrant's status: 
+    # * `approved` &mdash; Registrant is approved. 
+    # * `denied` &mdash; Registrant is denied. 
+    # * `pending` &mdash; Registrant is waiting for approval.
+    "approved"|"denied"|"pending" status?;
 };
 
 public type MeetingsmeetingIdbatchPollsPolls record {
