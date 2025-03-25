@@ -12,21 +12,21 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` **No Content** Device deleted successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `30055008` <br>
-    # no permission. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `30055008` <br>
+#  no permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `30055012` <br>
-    # no found unified deviceId. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `30055012` <br>
+#  no found unified deviceId. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete devices/[string deviceId]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -37,25 +37,25 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` **No Content** Device deleted successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `30052026` <br>
-    # Device is not ZPA. <br>
-    # **Error Code:** `30055003` <br>
-    # Device vendor does not support. <br>
-    # **Error Code:** `30055007` <br>
-    # Mac address is wrong. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `30052026` <br>
+#  Device is not ZPA. <br>
+# **Error Code:** `30055003` <br>
+#  Device vendor does not support. <br>
+# **Error Code:** `30055007` <br>
+#  Mac address is wrong. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `30051039` <br>
-    # Zdm device not found. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `30051039` <br>
+#  Zdm device not found. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete devices/zpa/vendors/[string vendor]/mac_addresses/[string macAddress]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -66,13 +66,13 @@ service /v2 on ep0 {
     # http:Ok (You do not have the permission to delete this device.)
     # http:NoContent (H.323/SIP device deleted.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # )
+#  Not Found
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete h323/devices/[string deviceId]() returns http:Ok|http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -84,25 +84,25 @@ service /v2 on ep0 {
     # + file_ids - The live webinar chat file's universally unique identifier, in base64-encoded format. Separate multiple values with commas.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting chat message deleted.)
+#  
+# Meeting chat message deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # * Only available for Paid accounts. 
-    # * DLP is not enabled. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  * Only available for Paid accounts. 
+# * DLP is not enabled. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting {meetingId} does not exist. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting {meetingId} does not exist. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete live_meetings/[int meetingId]/chat/messages/[string messageId](string? file_ids) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -113,26 +113,26 @@ service /v2 on ep0 {
     # + file_ids - The live webinar chat file's universally unique identifier (UUID), in base64-encoded format. Separate multiple values with commas.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Webinar chat message deleted.)
+#  
+# Webinar chat message deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `300` <br>
-    # DLP is not enabled on this account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `300` <br>
+#  DLP is not enabled on this account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete live_webinars/[int webinarId]/chat/messages/[string messageId](string? file_ids) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -148,40 +148,40 @@ service /v2 on ep0 {
     # The default value of this field is `false`.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code**: `204`   
-    #
-    # Meeting deleted.)
+#  
+# Meeting deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}.<br> <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting information.<br>Invalid occurrence_id.<br> <br>
-    # **Error Code:** `3002` <br>
-    # Sorry, you cannot delete this meeting since it is in progress.<br> <br>
-    # **Error Code:** `3003` <br>
-    # You are not the meeting host.<br> <br>
-    # **Error Code:** `3007` <br>
-    # Sorry, you cannot delete this meeting since it has ended.<br> <br>
-    # **Error Code:** `3018` <br>
-    # Not allowed to delete PMI.<br> <br>
-    # **Error Code:** `3037` <br>
-    # Not allowed to delete PAC. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId}.<br> <br>
+# **Error Code:** `3000` <br>
+#  Cannot access meeting information.<br>Invalid occurrence_id.<br> <br>
+# **Error Code:** `3002` <br>
+#  Sorry, you cannot delete this meeting since it is in progress.<br> <br>
+# **Error Code:** `3003` <br>
+#  You are not the meeting host.<br> <br>
+# **Error Code:** `3007` <br>
+#  Sorry, you cannot delete this meeting since it has ended.<br> <br>
+# **Error Code:** `3018` <br>
+#  Not allowed to delete PMI.<br> <br>
+# **Error Code:** `3037` <br>
+#  Not allowed to delete PAC. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}.<br> <br>
-    # **Error Code:** `3001` <br>
-    # Meeting with this {meetingId} is not found or has expired. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}.<br> <br>
+# **Error Code:** `3001` <br>
+#  Meeting with this {meetingId} is not found or has expired. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[int meetingId](string? occurrence_id, boolean? schedule_for_reminder, boolean? cancel_meeting_reminder) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -192,25 +192,25 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `201` App deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `3000` <br>
-    # Meeting {meetingId} has started. <br>
-    # **Error Code:** `3000` <br>
-    # Zoom Apps disabled. To use this feature, enable the **Zoom Apps Quick Launch Button** setting in the **Settings** page of the Zoom web portal. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `3000` <br>
+#  Meeting {meetingId} has started. <br>
+# **Error Code:** `3000` <br>
+#  Zoom Apps disabled. To use this feature, enable the **Zoom Apps Quick Launch Button** setting in the **Settings** page of the Zoom web portal. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId} <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId} <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[int meetingId]/open_apps() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -221,26 +221,26 @@ service /v2 on ep0 {
     # + pollId - The poll ID
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting Poll deleted)
+#  
+# Meeting Poll deleted)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `4400` <br>
-    # Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `4400` <br>
+#  Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `404` <br>
-    # Meeting Poll not found <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `404` <br>
+#  Meeting Poll not found <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[int meetingId]/polls/[string pollId]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -251,37 +251,37 @@ service /v2 on ep0 {
     # + registrantId - The meeting registrant ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP status code:** `204`   
-    #
-    # OK)
+#  
+# OK)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # Only available for paid users: {0}.<br>
-    #
-    # **Error Code:** `300` <br>
-    # The value that you entered for the Registrant ID field is invalid. Enter a valid value and try again.<br>
-    #
-    # **Error Code:** `404` <br>
-    # Registration has not been enabled for this meeting: {0}.<br>
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist or does not belong to this account.<br>
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar info.
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {0}.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# Only available for paid users: {0}.<br>
+# 
+# **Error Code:** `300` <br>
+# The value that you entered for the Registrant ID field is invalid. Enter a valid value and try again.<br>
+# 
+# **Error Code:** `404` <br>
+# Registration has not been enabled for this meeting: {0}.<br>
+# 
+# **Error Code:** `1001` <br>
+# User {userId} does not exist or does not belong to this account.<br>
+# 
+# **Error Code:** `3000` <br>
+# Cannot access webinar info.
+# 
+# **Error Code:** `3001` <br>
+# Meeting does not exist: {0}.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[int meetingId]/registrants/[string registrantId](string? occurrence_id) returns http:NoContent|http:BadRequest|http:TooManyRequests {
     }
 
@@ -291,36 +291,36 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting survey deleted.)
+#  
+#  Meeting survey deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID.
-    #
-    # **Error Code:** `3000` <br>
-    # * Cannot access Webinar information. <br>
-    # * Meeting survey disabled. To enable this feature, enable the "Meeting Survey" setting in the Zoom web portal's "Settings" interface.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# Invalid meeting ID.
+# 
+# **Error Code:** `3000` <br>
+# * Cannot access Webinar information. <br>
+#  * Meeting survey disabled. To enable this feature, enable the "Meeting Survey" setting in the Zoom web portal's "Settings" interface.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist.
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `300` <br>
+# Meeting ID does not exist.
+# 
+# **Error Code:** `3001` <br>
+# Meeting does not exist: {meetingId}.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[int meetingId]/survey() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -334,32 +334,32 @@ service /v2 on ep0 {
     # `delete` - Delete recording permanently.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Recordings deleted. 
-    #
-    # **Error Code:** `200`   
-    #
-    # You do not have the right permission.)
+#  
+# Recordings deleted. 
+# 
+# **Error Code:** `200`   
+#  
+# You do not have the right permission.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}. <br>
-    # **Error Code:** `3310` <br>
-    # This recording was selected for a simulive webinar. You cannot delete or trash it. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId}. <br>
+# **Error Code:** `3310` <br>
+#  This recording was selected for a simulive webinar. You cannot delete or trash it. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist or does not belong to this account.<br> <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} does not exist or does not belong to this account.<br> <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[string meetingId]/recordings("trash"|"delete" action = "trash") returns http:Ok|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -374,36 +374,36 @@ service /v2 on ep0 {
     # `delete` - Delete recording permanently.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Recording deleted. 
-    #
-    # **Error Code:** `200`  
-    #
-    # You do not have the right permissions.)
+#  
+# Recording deleted. 
+# 
+# **Error Code:** `200`  
+#  
+# You do not have the right permissions.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}.<br> <br>
-    # **Error Code:** `3303` <br>
-    # You can not delete an uncompleted meeting. <br>
-    # **Error Code:** `3310` <br>
-    # This recording was selected for a simulive webinar. You cannot delete or trash it. <br>
-    # **Error Code:** `3310` <br>
-    # Unable to delete this file because this recording is being used for Zoom IQ for Sales. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId}.<br> <br>
+# **Error Code:** `3303` <br>
+#  You can not delete an uncompleted meeting. <br>
+# **Error Code:** `3310` <br>
+#  This recording was selected for a simulive webinar. You cannot delete or trash it. <br>
+# **Error Code:** `3310` <br>
+#  Unable to delete this file because this recording is being used for Zoom IQ for Sales. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist or does not belong to this account.<br> <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} does not exist or does not belong to this account.<br> <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete meetings/[string meetingId]/recordings/[string recordingId]("trash"|"delete" action = "trash") returns http:Ok|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -413,26 +413,26 @@ service /v2 on ep0 {
     # If the meeting UUID begins with a `/` character or contains a `//` character, you **must** double-encode the meeting UUID when using the meeting UUID for other API calls.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting archived file deleted.)
+#  
+#  Meeting archived file deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Only available for Paid account. <br>
-    # **Error Code:** `200` <br>
-    # Not available for this account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Only available for Paid account. <br>
+# **Error Code:** `200` <br>
+#  Not available for this account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {0} <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting does not exist: {0} <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete past_meetings/[string meetingUUID]/archive_files() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -442,9 +442,9 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   SIP phone deleted.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete sip_phones/[string phoneId]() returns http:NoContent|http:TooManyRequests {
     }
 
@@ -453,16 +453,16 @@ service /v2 on ep0 {
     # + fieldId - The tracking field ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Tracking Field deleted)
+#  
+# Tracking Field deleted)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete tracking_fields/[string fieldId]() returns http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -472,39 +472,39 @@ service /v2 on ep0 {
     # + tspId - TSP account ID.
     # + return - returns can be any of following types 
     # http:NoContent (**Status Code:** `204` **No Content**  
-    #
-    # TSP account deleted.)
+#  
+# TSP account deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `2024` <br>
-    # Account not enable TSP.<br>
-    #
-    # **Error Code:** `300` <br>
-    # The TSP id provided does not exist.<br>
-    #
-    # **Error Code:** `300` <br>
-    # TSP Config does not exist.<br>
-    #
-    # **Error Code:** `300` <br>
-    # At least one tsp config must be available.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `2024` <br>
+# Account not enable TSP.<br>
+# 
+# **Error Code:** `300` <br>
+# The TSP id provided does not exist.<br>
+# 
+# **Error Code:** `300` <br>
+# TSP Config does not exist.<br>
+# 
+# **Error Code:** `300` <br>
+# At least one tsp config must be available.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: $userId.<br>
-    #
-    # **Error Code:** `1120` <br>
-    # A valid invitation to join the Zoom account was not found for this user.<br>
-    # This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User does not exist: $userId.<br>
+# 
+# **Error Code:** `1120` <br>
+# A valid invitation to join the Zoom account was not found for this user.<br>
+# This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete users/[UserId4 userId]/tsp/["1"|"2" tspId]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -517,33 +517,33 @@ service /v2 on ep0 {
     # The default value of this field is `false`.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` <br>
-    # Webinar deleted.)
+#  Webinar deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # Your request could not be processed because webinars created via event directory can not be updated or deleted using this method. <br>
-    # **Error Code:** `3000` <br>
-    # You cannot update or delete simulive webinars that have started using this method. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar occurrence does not exist. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  Your request could not be processed because webinars created via event directory can not be updated or deleted using this method. <br>
+# **Error Code:** `3000` <br>
+#  You cannot update or delete simulive webinars that have started using this method. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `3000` <br>
+#  Webinar occurrence does not exist. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId](string? occurrence_id, boolean? cancel_webinar_reminder) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -553,33 +553,33 @@ service /v2 on ep0 {
     # + name_tag_ids - A comma-separated list of the name tag IDs to delete.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # * No content. 
-    # * Name tag(s) deleted.)
+#  
+# * No content. 
+# * Name tag(s) deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid parameter: `name_tag_ids`. <br>
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid parameter: `name_tag_ids`. <br>
+# **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/branding/name_tags(string? name_tag_ids) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -589,33 +589,33 @@ service /v2 on ep0 {
     # + ids - A comma-separated list of the virtual background file IDs to delete.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # * No content. 
-    # * Virtual background file(s) deleted.)
+#  
+# * No content. 
+# * Virtual background file(s) deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid parameter: `ids`. <br>
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid parameter: `ids`. <br>
+# **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/branding/virtual_backgrounds(string? ids) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -624,31 +624,31 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # * No content. 
-    # * Webinar wallpaper deleted.)
+#  
+# * No content. 
+# * Webinar wallpaper deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/branding/wallpaper() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -657,28 +657,28 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Panelists removed.)
+#  
+# Panelists removed.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/panelists() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -688,28 +688,28 @@ service /v2 on ep0 {
     # + panelistId - The panelist's ID or email.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Panelist removed.)
+#  
+# Panelist removed.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/panelists/[string panelistId]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -719,34 +719,34 @@ service /v2 on ep0 {
     # + pollId - The poll ID
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Webinar Poll deleted)
+#  
+# Webinar Poll deleted)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `4400` <br>
-    # Invalid poll IDs. <br>
-    # **Error Code:** `4400` <br>
-    # Cannot update or delete the poll within the Survey Library. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `4400` <br>
+#  Invalid poll IDs. <br>
+# **Error Code:** `4400` <br>
+#  Cannot update or delete the poll within the Survey Library. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/polls/[string pollId]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -757,34 +757,34 @@ service /v2 on ep0 {
     # + occurrence_id - The webinar occurrence ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP status code:** `204`   
-    #
-    # OK)
+#  
+# OK)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # The value that you entered for the Registrant ID field is invalid. Enter a valid value and try again. <br>
-    # **Error Code:** `3000` <br>
-    # Registration has not been enabled for this webinar: {webinarId}. <br>
-    # **Error Code:** `3000` <br>
-    # Registrant {registrantId} was not found. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  The value that you entered for the Registrant ID field is invalid. Enter a valid value and try again. <br>
+# **Error Code:** `3000` <br>
+#  Registration has not been enabled for this webinar: {webinarId}. <br>
+# **Error Code:** `3000` <br>
+#  Registrant {registrantId} was not found. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/registrants/[string registrantId](string? occurrence_id) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -793,30 +793,30 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Webinar survey deleted.)
+#  
+#  Webinar survey deleted.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar survey disabled. To enable this feature, enable the **Webinar Survey** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `3000` <br>
+#  Webinar survey disabled. To enable this feature, enable the **Webinar Survey** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function delete webinars/[int webinarId]/survey() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -835,18 +835,18 @@ service /v2 on ep0 {
     # (The maximum number of supported groups for filtering is 7.)
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Archived files returned.)
+#  
+#  Archived files returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `2001` <br>
-    # Account does not exist: {accountId} <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `2001` <br>
+#  Account does not exist: {accountId} <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get archive_files(string? next_page_token, string? 'from, string? to, string? group_id, string? group_ids, int page_size = 30, "meeting_start_time"|"archive_complete_time" query_date_type = "meeting_start_time") returns InlineResponse200|http:BadRequest|http:TooManyRequests {
     }
 
@@ -856,18 +856,18 @@ service /v2 on ep0 {
     # + to - The query end date, in `yyyy-MM-dd'T'HH:mm:ssZ` format. This value and the `from` query parameter value cannot exceed seven days.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # The statistics of Archived files returned.)
+#  
+#  The statistics of Archived files returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `2001` <br>
-    # Account does not exist: {accountId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `2001` <br>
+#  Account does not exist: {accountId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get archive_files/statistics(string? 'from, string? to) returns InlineResponse2001|http:BadRequest|http:TooManyRequests {
     }
 
@@ -897,19 +897,19 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Device detail returned successfully.)
+#  
+# Device detail returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `30055008` <br>
-    # no permission.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `30055008` <br>
+# no permission.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get devices(string? search_text, "win"|"mac"|"ipad"|"iphone"|"android"|"linux"? platform_os, string? device_vendor, string? device_model, string? next_page_token, boolean is_enrolled_in_zdm = true, -1|0|1|2|3|4|5|6 device_type = -1, -1|0|1 device_status = -1, int page_size = 30) returns InlineResponse2007|http:BadRequest|http:TooManyRequests {
     }
 
@@ -918,24 +918,24 @@ service /v2 on ep0 {
     # + deviceId - The device's unique identifier.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK** 
-    #
-    # Device detail returned successfully.)
+#  
+# Device detail returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `30055008` <br>
-    # No permission. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `30055008` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `30055012` <br>
-    # No found unified deviceId. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `30055012` <br>
+#  No found unified deviceId. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get devices/[string deviceId]() returns InlineResponse20010|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -948,21 +948,21 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  Version detail returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `30051037` <br>
-    # Invalid parameters. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `30051037` <br>
+#  Invalid parameters. <br>
+# )
     # http:Forbidden (**HTTP Status Code:** `403` <br>
-    # Forbidden  
-    #
-    # **Error Code:** `30055008` <br>
-    # No permission. <br>
-    # )
+#  Forbidden  
+# 
+#  **Error Code:** `30055008` <br>
+#  No permission. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get devices/groups(int? page_size, string? next_page_token) returns InlineResponse2008|http:BadRequest|http:Forbidden|http:TooManyRequests {
     }
 
@@ -972,21 +972,21 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  Version detail returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `30051037` <br>
-    # * AccountId is empty. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `30051037` <br>
+#  * AccountId is empty. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `30052027` <br>
-    # * ZdmGroup not found. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `30052027` <br>
+#  * ZdmGroup not found. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get devices/zpa/zdm_groups/[string zdmGroupId]/versions() returns InlineResponse2009|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -997,16 +997,16 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List of H.323/SIP devices returned.  
-    #
-    # **Error Code:** `200`  
-    #
-    # No permission.)
+#  
+# List of H.323/SIP devices returned.  
+#  
+# **Error Code:** `200`  
+#  
+# No permission.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get h323/devices(string? next_page_token, int page_size = 30, int page_number = 1) returns H323SIPDeviceList|http:TooManyRequests {
     }
 
@@ -1018,26 +1018,26 @@ service /v2 on ep0 {
     # + show_previous_occurrences - Set this field's value to `true` to view meeting details of all previous occurrences of a [recurring meeting](https://support.zoom.us/hc/en-us/articles/214973206-Scheduling-Recurring-Meetings). 
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting object returned.)
+#  
+# Meeting object returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar info. <br>
-    # **Error Code:** `3161` <br>
-    # Your user account is not allowed meeting hosting and scheduling capabilities. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  Cannot access webinar info. <br>
+# **Error Code:** `3161` <br>
+#  Your user account is not allowed meeting hosting and scheduling capabilities. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId](string? occurrence_id, boolean? show_previous_occurrences) returns InlineResponse20012|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1047,18 +1047,18 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting invitation returned.)
+#  
+# Meeting invitation returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/invitation() returns MeetingInvitation|http:BadRequest|http:TooManyRequests {
     }
 
@@ -1068,41 +1068,41 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting live streaming token returned.)
+#  
+# Meeting live streaming token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID.
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access Webinar information.
-    #
-    # **Error Code:** `124` <br>
-    # This API only supports OAuth2 authorization.
-    #
-    # **Error Code:** `3000` <br>
-    # Not allowed to start live streaming. To use this feature, enable the "Allow livestreaming of meetings" setting in the "Settings" page of the Zoom web portal.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# Invalid meeting ID.
+# 
+# **Error Code:** `3000` <br>
+# Cannot access Webinar information.
+# 
+# **Error Code:** `124` <br>
+# This API only supports OAuth2 authorization.
+# 
+# **Error Code:** `3000` <br>
+# Not allowed to start live streaming. To use this feature, enable the "Allow livestreaming of meetings" setting in the "Settings" page of the Zoom web portal.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist.
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `300` <br>
+# Meeting ID does not exist.
+# 
+# **Error Code:** `3001` <br>
+# Meeting does not exist: {meetingId}
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/jointoken/live_streaming() returns InlineResponse20013|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1112,41 +1112,41 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting local archiving token returned.)
+#  
+# Meeting local archiving token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID.
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access Webinar information.
-    #
-    # **Error Code:** `124` <br>
-    # This API only supports OAuth2 authorization.
-    #
-    # **Error Code:** `3000` <br>
-    # Not allowed to start local archiving. To use this feature, enable the "Archive meetings and webinars" setting in the "Settings" page of the Zoom web portal.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# Invalid meeting ID.
+# 
+# **Error Code:** `3000` <br>
+# Cannot access Webinar information.
+# 
+# **Error Code:** `124` <br>
+# This API only supports OAuth2 authorization.
+# 
+# **Error Code:** `3000` <br>
+# Not allowed to start local archiving. To use this feature, enable the "Archive meetings and webinars" setting in the "Settings" page of the Zoom web portal.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist.
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `300` <br>
+# Meeting ID does not exist.
+# 
+# **Error Code:** `3001` <br>
+# Meeting does not exist: {meetingId}
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/jointoken/local_archiving() returns InlineResponse20014|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1157,34 +1157,34 @@ service /v2 on ep0 {
     # + bypass_waiting_room - Whether to bypass the waiting room.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting local recording token returned.)
+#  
+# Meeting local recording token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access Webinar information. <br>
-    # **Error Code:** `124` <br>
-    # This API only supports OAuth2 authorization. <br>
-    # **Error Code:** `3000` <br>
-    # Not allowed to start local recording. To use this feature, enable the "Local Recording" setting in the "Settings" page of the Zoom web portal. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access Webinar information. <br>
+# **Error Code:** `124` <br>
+#  This API only supports OAuth2 authorization. <br>
+# **Error Code:** `3000` <br>
+#  Not allowed to start local recording. To use this feature, enable the "Local Recording" setting in the "Settings" page of the Zoom web portal. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `300` <br>
+#  Meeting ID does not exist. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/jointoken/local_recording(boolean? bypass_waiting_room) returns InlineResponse20015|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1197,26 +1197,26 @@ service /v2 on ep0 {
     # * `false` &mdash; Do not query for polls with the **Anonymous** option enabled.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:**   
-    #
-    # List polls of a Meeting  returned)
+#  
+# List polls of a Meeting  returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `404` <br>
-    # Meeting Poll not found <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `404` <br>
+#  Meeting Poll not found <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/polls(boolean? anonymous) returns PollList|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1227,26 +1227,26 @@ service /v2 on ep0 {
     # + pollId - The poll ID
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting Poll object returned)
+#  
+# Meeting Poll object returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `404` <br>
-    # Meeting Poll not found. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `404` <br>
+#  Meeting Poll not found. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/polls/[string pollId]() returns InlineResponse20017|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1263,16 +1263,16 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Registrants returned.)
+#  
+#  Registrants returned.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/recordings/registrants(string? next_page_token, "pending"|"approved"|"denied" status = "approved", int page_size = 30, int page_number = 1) returns MeetingCloudRecordingRegistration|http:NotFound|http:TooManyRequests {
     }
 
@@ -1290,30 +1290,30 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Successfully listed meeting registrants.)
+#  
+# Successfully listed meeting registrants.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}.<br> <br>
-    # **Error Code:** `3003` <br>
-    # You are not the meeting host.<br> <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting info. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId}.<br> <br>
+# **Error Code:** `3003` <br>
+#  You are not the meeting host.<br> <br>
+# **Error Code:** `3000` <br>
+#  Cannot access meeting info. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `1001` <br>
-    # Meeting host does not exist: {userId}. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `1001` <br>
+#  Meeting host does not exist: {userId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/registrants(string? occurrence_id, string? next_page_token, "pending"|"approved"|"denied" status = "approved", int page_size = 30, int page_number = 1) returns RegistrationList|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1325,28 +1325,28 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (Success.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: "{accountId}"<br> <br>
-    # **Error Code:** `3003` <br>
-    # You are not the meeting host.<br> <br>
-    # **Error Code:** `3000` <br>
-    # >
-    # Cannot access meeting info. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: "{accountId}"<br> <br>
+# **Error Code:** `3003` <br>
+#  You are not the meeting host.<br> <br>
+# **Error Code:** `3000` <br>
+#  >
+# Cannot access meeting info. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `1001` <br>
-    # Meeting host does not exist: "{userId}" <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `1001` <br>
+#  Meeting host does not exist: "{userId}" <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/registrants/[string registrantId]() returns MeetingRegistrant|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1356,23 +1356,23 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting Registrant Question object returned)
+#  
+# Meeting Registrant Question object returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # )
+#  Not Found
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/registrants/questions() returns InlineResponse20018|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1382,32 +1382,32 @@ service /v2 on ep0 {
     # When storing this value in your database, store it as a long-format integer and **not** a simple integer. Meeting IDs can be more than 10 digits.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting survey object returned.)
+#  
+#  Meeting survey object returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access Webinar information. <br>
-    # **Error Code:** `3000` <br>
-    # Meeting survey disabled. To enable this feature, enable the "Meeting Survey" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access Webinar information. <br>
+# **Error Code:** `3000` <br>
+#  Meeting survey disabled. To enable this feature, enable the "Meeting Survey" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `300` <br>
+#  Meeting ID does not exist. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/survey() returns MeetingSurveyObject|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1420,30 +1420,30 @@ service /v2 on ep0 {
     # This defaults to `closed_caption_token`.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting token returned.)
+#  
+# Meeting token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar information. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access webinar information. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `300` <br>
+#  Meeting ID does not exist. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[int meetingId]/token("closed_caption_token" 'type = "closed_caption_token") returns InlineResponse20020|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1452,35 +1452,35 @@ service /v2 on ep0 {
     # + meetingId - Unique identifier of the meeting.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Live Stream details returned.
-    #
-    # )
+#  
+# Live Stream details returned.
+# 
+# )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # Missing meetingId<br>
-    # Invalid meetingId<br><br>
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# Missing meetingId<br>
+# Invalid meetingId<br><br>
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account: {accountId}
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User {userId} does not exist.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/livestream() returns InlineResponse20016|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1490,9 +1490,9 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`Meeting Poll object returned.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/meeting_summary() returns InlineResponse20051|http:TooManyRequests {
     }
 
@@ -1505,30 +1505,30 @@ service /v2 on ep0 {
     # + ttl - The `download_access_token` Time to Live (TTL) value. This parameter is only valid if the `include_fields` query parameter contains the value `download_access_token`.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Recording object returned. 
-    #
-    # **Error Code:** `200`   
-    #
-    # You do not have the right permissions.)
+#  
+# Recording object returned. 
+# 
+# **Error Code:** `200`   
+#  
+# You do not have the right permissions.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User not found on this account: {accountId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User not found on this account: {accountId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User "{userId}" does not exist or does not belong to this account. <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User "{userId}" does not exist or does not belong to this account. <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/recordings(string? include_fields, int? ttl) returns InlineResponse2003|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1546,26 +1546,26 @@ service /v2 on ep0 {
     # * `by_download` &mdash; by_download.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Analytics Detail listed successfully.)
+#  
+# Analytics Detail listed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User not found on this account: {accountId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User not found on this account: {accountId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User "{userId}" does not exist or does not belong to this account. <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User "{userId}" does not exist or does not belong to this account. <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/recordings/analytics_details(string? next_page_token, string? 'from, string? to, "by_view"|"by_download"? 'type, int page_size = 30) returns InlineResponse2004|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1578,26 +1578,26 @@ service /v2 on ep0 {
     # + to - The end date for the monthly range to query. The maximum range can be a month.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Analytics Summary listed successfully.)
+#  
+# Analytics Summary listed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User not found on this account: {accountId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User not found on this account: {accountId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User "{userId}" does not exist or does not belong to this account. <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User "{userId}" does not exist or does not belong to this account. <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/recordings/analytics_summary(string? 'from, string? to) returns InlineResponse2005|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1608,16 +1608,16 @@ service /v2 on ep0 {
     # If a UUID starts with `/` or contains `//`, like `/ajXp112QmuoKj4854875==`, you must **double encode** the UUID before making an API request. 
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Recording registrant question object returned.)
+#  
+# Recording registrant question object returned.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/recordings/registrants/questions() returns RecordingRegistrantQuestions|http:NotFound|http:TooManyRequests {
     }
 
@@ -1630,13 +1630,13 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`    Meeting recording settings returned.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/[string meetingId]/recordings/settings() returns RecordingSettings|http:NotFound|http:TooManyRequests {
     }
 
@@ -1648,26 +1648,26 @@ service /v2 on ep0 {
     # + to - The end date in `yyyy-MM-dd'T'HH:mm:ss'Z'` UTC format used to retrieve the creation date range of the meeting summaries.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`
-    #
-    # Successfully listed meeting summaries of an account.)
+# 
+# Successfully listed meeting summaries of an account.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # **Error Code:** `3000` <br>
-    # Meeting summary disabled. To enable this feature, enable the "Meeting Summary with AI Companion" setting in the Zoom web portal's "Settings" interface. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# **Error Code:** `3000` <br>
+#  Meeting summary disabled. To enable this feature, enable the "Meeting Summary with AI Companion" setting in the Zoom web portal's "Settings" interface. <br>
+# )
     # http:Unauthorized (**HTTP Status Code:** `401` <br>
-    # Unauthorized 
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} not exist or not belong to this account. <br>
-    # )
+#  Unauthorized 
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} not exist or not belong to this account. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get meetings/meeting_summaries(string? next_page_token, string? 'from, string? to, int page_size = 30) returns InlineResponse20011|http:BadRequest|http:Unauthorized|http:TooManyRequests {
     }
 
@@ -1678,37 +1678,37 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** [double encode](https://marketplace.zoom.us/docs/api-reference/using-zoom-apis/#meeting-id-and-uuid) the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting information returned.)
+#  
+# Meeting information returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # * User does not exist: {userId} 
-    # * User "{userId}" does not exist or does not belong to this account.
-    #
-    # **Error Code:** `300` <br>
-    # Cannot access meeting information.
-    #
-    # **Error Code:** `200` <br>
-    # Only available for paid account: {accountId}
-    #
-    # **Error Code:** `12702` <br>
-    # Can not access a meeting a year ago.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# * User does not exist: {userId} 
+# * User "{userId}" does not exist or does not belong to this account.
+# 
+# **Error Code:** `300` <br>
+# Cannot access meeting information.
+# 
+# **Error Code:** `200` <br>
+# Only available for paid account: {accountId}
+# 
+# **Error Code:** `12702` <br>
+# Can not access a meeting a year ago.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `3001` <br>
-    # * This meeting is not available or the meeting ID is invalid. 
-    # * The meeting ID is invalid or the meeting has not ended.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `3001` <br>
+# * This meeting is not available or the meeting ID is invalid. 
+# * The meeting ID is invalid or the meeting has not ended.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_meetings/[MeetingId meetingId]() returns InlineResponse20021|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1717,16 +1717,16 @@ service /v2 on ep0 {
     # + meetingId - The past meeting's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # List of ended meeting instances returned.)
+#  
+#  List of ended meeting instances returned.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # )
+#  Not Found
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_meetings/[int meetingId]/instances() returns MeetingInstances|http:NotFound|http:TooManyRequests {
     }
 
@@ -1739,34 +1739,34 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting participants' report returned.)
+#  
+# Meeting participants' report returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User {userId} not exist or not belong to this account.<br><br> <br>
-    # **Error Code:** `300` <br>
-    # Cannot access meeting information.<br><br> <br>
-    # **Error Code:** `200` <br>
-    # Only available for paid account: {accountId} <br>
-    # **Error Code:** `12702` <br>
-    # Can not access a meeting a year ago. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User {userId} not exist or not belong to this account.<br><br> <br>
+# **Error Code:** `300` <br>
+#  Cannot access meeting information.<br><br> <br>
+# **Error Code:** `200` <br>
+#  Only available for paid account: {accountId} <br>
+# **Error Code:** `12702` <br>
+#  Can not access a meeting a year ago. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} not exist or not belong to this account.<br>
-    # User not exist: {userId}<br><br> <br>
-    # **Error Code:** `3001` <br>
-    # This meeting is not available or ID is not valid.<br>
-    # Meeting ID is invalid or not end. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} not exist or not belong to this account.<br>
+# User not exist: {userId}<br><br> <br>
+# **Error Code:** `3001` <br>
+#  This meeting is not available or ID is not valid.<br>
+# Meeting ID is invalid or not end. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_meetings/[string meetingId]/participants(string? next_page_token, int page_size = 30) returns InlineResponse20022|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1777,18 +1777,18 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Polls returned successfully.)
+#  
+# Polls returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `12702` <br>
-    # Can not access a meeting a year ago. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `12702` <br>
+#  Can not access a meeting a year ago. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_meetings/[string meetingId]/polls() returns InlineResponse20023|http:BadRequest|http:TooManyRequests {
     }
 
@@ -1799,25 +1799,25 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Q&amp;A returned successfully.)
+#  
+# Q&amp;A returned successfully.)
     # http:Unauthorized (**HTTP Status Code:** `401` <br>
-    # Unauthorized  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}. <br>
-    # )
+#  Unauthorized  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account:{accountId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting ID is invalid or not end.<br>
-    # This meeting ID does not belong to you: {meetingId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting ID is invalid or not end.<br>
+# This meeting ID does not belong to you: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_meetings/[string meetingId]/qa() returns InlineResponse20024|http:Unauthorized|http:NotFound|http:TooManyRequests {
     }
 
@@ -1827,18 +1827,18 @@ service /v2 on ep0 {
     # If the meeting UUID begins with a `/` character or contains a `//` character, you **must** [double encode](https://developers.zoom.us/docs/api/rest/using-zoom-apis/#meeting-id-and-uuid) the meeting UUID when using the meeting UUID for other API calls.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting archived files returned.)
+# 
+#  Meeting archived files returned.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting {meetingUUId} does not exist. <br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting {meetingUUId} does not exist. <br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_meetings/[string meetingUUID]/archive_files() returns InlineResponse2002|http:NotFound|http:TooManyRequests {
     }
 
@@ -1847,24 +1847,24 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List of past webinar instances returned.)
+#  
+# List of past webinar instances returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_webinars/[int webinarId]/instances() returns WebinarInstances|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1878,33 +1878,33 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Success.  
-    # **Error Code:** `200`  
-    #
-    # Webinar plan subscription is missing. Enable webinar for this user once the subscription is added:{userId}.)
+#  
+# Success.  
+#  **Error Code:** `200`  
+#  
+# Webinar plan subscription is missing. Enable webinar for this user once the subscription is added:{userId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # The request could not be completed because you have provided an invalid occurrence ID: {occurrenceId}<br> <br>
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}.<br> <br>
-    # **Error Code:** `3000` <br>
-    # This Webinar has not registration required: {webinarUUID} <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  The request could not be completed because you have provided an invalid occurrence ID: {occurrenceId}<br> <br>
+# **Error Code:** `1010` <br>
+#  User does not belong to this account:{accountId}.<br> <br>
+# **Error Code:** `3000` <br>
+#  This Webinar has not registration required: {webinarUUID} <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar {webinarUUID} not found or expired. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar {webinarUUID} not found or expired. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_webinars/[string webinarId]/absentees(string? occurrence_id, string? next_page_token, int page_size = 30) returns RegistrationList1|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1917,28 +1917,28 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Participants list returned.)
+#  
+# Participants list returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `300` <br>
-    # The next page token is invalid or expired. <br>
-    # **Error Code:** `200` <br>
-    # Only available for Paid or ZMP account: {accountId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `300` <br>
+#  The next page token is invalid or expired. <br>
+# **Error Code:** `200` <br>
+#  Only available for Paid or ZMP account: {accountId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_webinars/[string webinarId]/participants(string? next_page_token, int page_size = 30) returns InlineResponse20056|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1949,24 +1949,24 @@ service /v2 on ep0 {
     # * If you provide a webinar UUID that begins with a `/` character or contains the `//` characters, you **must** [double encode](https://developers.zoom.us/docs/api/rest/using-zoom-apis/#meeting-id-and-uuid) the webinar UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Polls returned successfully.)
+#  
+# Polls returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar ID is invalid or not end. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar ID is invalid or not end. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_webinars/[string webinarId]/polls() returns InlineResponse20057|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -1977,24 +1977,24 @@ service /v2 on ep0 {
     # * If you provide a webinar UUID that begins with a `/` character or contains the `//` characters, you **must** [double encode](https://developers.zoom.us/docs/api/rest/using-zoom-apis/#meeting-id-and-uuid) the webinar UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Q&amp;A returned successfully.)
+#  
+# Q&amp;A returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar ID is invalid or not end. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar ID is invalid or not end. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get past_webinars/[string webinarId]/qa() returns InlineResponse20058|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2006,19 +2006,19 @@ service /v2 on ep0 {
     # + next_page_token - Next page token is used to paginate through large result sets
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Success)
+#  
+# Success)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/activities(string? 'from, string? to, int? page_size, string? next_page_token) returns InlineResponse20029|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2026,19 +2026,19 @@ service /v2 on ep0 {
     #
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Billing report returned.)
+#  
+# Billing report returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # No permission.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# No permission.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/billing() returns InlineResponse20030|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2047,19 +2047,19 @@ service /v2 on ep0 {
     # + billing_id - Unique Identifier of the Billing Report. Retrieve this ID from the response of **Get Billing Reports** API request. 
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # Billing Invoice reports returned.)
+#  
+# Billing Invoice reports returned.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `5010` <br>
-    # Report does not exist.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `5010` <br>
+# Report does not exist.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/billing/invoices(string billing_id) returns InlineResponse20031|http:NotFound|http:TooManyRequests {
     }
 
@@ -2071,20 +2071,20 @@ service /v2 on ep0 {
     # **Note:** The API response will only contain users who are members of the queried group ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Cloud Recording Report Returned)
+#  
+# Cloud Recording Report Returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    # ’
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# ’
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/cloud_recording(string 'from, string to, string? group_id) returns InlineResponse20032|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2096,25 +2096,25 @@ service /v2 on ep0 {
     # **Note:** The API response will only contain users who are members of the queried group ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Daily report retrieved.  
-    #
-    # This is only available for paid accounts:{accountId}.)
+#  
+# Daily report retrieved.  
+#  
+# This is only available for paid accounts:{accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # Daily report can only be provided for a month that falls within the recent 6 months.
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    # ’
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# Daily report can only be provided for a month that falls within the recent 6 months.
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# ’
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/daily(int? year, int? month, string? group_id) returns InlineResponse20033|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2138,23 +2138,23 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  Success. Only available for Paid or ZMP account {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # )
+#  Bad Request  
+# 
+#  )
     # http:Forbidden (**HTTP Status Code:** `403` <br>
-    # Forbidden  No permission. 
-    #
-    # )
+#  Forbidden  No permission. 
+# 
+#  )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account {accountId}.<br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account {accountId}.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/meeting_activities(string 'from, string to, string? next_page_token, string? meeting_number, string? search_key, int page_size = 30, "All Activities"|"Meeting Created"|"Meeting Started"|"User Join"|"User Left"|"Remote Control"|"In-Meeting Chat"|"Meeting Ended" activity_type = "All Activities") returns InlineResponse20034|http:BadRequest|http:Forbidden|http:NotFound|http:TooManyRequests {
     }
 
@@ -2165,31 +2165,31 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** [double encode](https://marketplace.zoom.us/docs/api-reference/using-zoom-apis/#meeting-id-and-uuid) the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting details returned.  
-    #
-    # This is only available for paid account.)
+#  
+# Meeting details returned.  
+#  
+# This is only available for paid account.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `12702` <br>
-    # Can not access meeting a year ago.<br>
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `12702` <br>
+# Can not access meeting a year ago.<br>
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting {meetingId} not found or has expired.<br>
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `3001` <br>
+# Meeting {meetingId} not found or has expired.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/meetings/[MeetingId1 meetingId]() returns InlineResponse20035|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2200,29 +2200,29 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** [double encode](https://marketplace.zoom.us/docs/api-reference/using-zoom-apis/#meeting-id-and-uuid) the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` 
-    # * Meeting polls report returned. 
-    # * This is only available for paid account: {accountId})
+# * Meeting polls report returned. 
+# * This is only available for paid account: {accountId})
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `12702` <br>
-    # Can not access meeting a year ago.
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `12702` <br>
+# Can not access meeting a year ago.
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting "{meetingId}" not found or has expired.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `3001` <br>
+# Meeting "{meetingId}" not found or has expired.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/meetings/[MeetingId2 meetingId]/polls() returns InlineResponse20037|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2236,30 +2236,30 @@ service /v2 on ep0 {
     # + include_fields - Provide `registrant_id` as the value for this field if you would like to see the registrant ID attribute in the response of this API call. A registrant ID is a unique identifier of a [meeting registrant](/docs/api-reference/zoom-api/methods#operation/meetingRegistrants).
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting participants report returned.  
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+#  
+# Meeting participants report returned.  
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}.<br> <br>
-    # **Error Code:** `12702` <br>
-    # Can not access meeting a year ago.<br> <br>
-    # **Error Code:** `200` <br>
-    # No permission.<br> <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account:{accountId}.<br> <br>
+# **Error Code:** `12702` <br>
+#  Can not access meeting a year ago.<br> <br>
+# **Error Code:** `200` <br>
+#  No permission.<br> <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting  {MeetingId} not found or has expired.<br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting  {MeetingId} not found or has expired.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/meetings/[string meetingId]/participants(string? next_page_token, "registrant_id"? include_fields, int page_size = 30) returns InlineResponse20036|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2270,28 +2270,28 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting Q&amp;A report returned.  
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+#  
+# Meeting Q&amp;A report returned.  
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br> <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission.<br> <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}.<br> <br>
-    # **Error Code:** `3001` <br>
-    # Meeting {meetingId} not found or has expired.<br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}.<br> <br>
+# **Error Code:** `3001` <br>
+#  Meeting {meetingId} not found or has expired.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/meetings/[string meetingId]/qa() returns InlineResponse20038|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2302,30 +2302,30 @@ service /v2 on ep0 {
     # * If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the meeting UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Meeting survey report returned.   
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+#  
+# Meeting survey report returned.   
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}.<br> <br>
-    # **Error Code:** `12702` <br>
-    # Can not access a webinar a year ago.<br> <br>
-    # **Error Code:** `200` <br>
-    # No permission.<br> <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account:{accountId}.<br> <br>
+# **Error Code:** `12702` <br>
+#  Can not access a webinar a year ago.<br> <br>
+# **Error Code:** `200` <br>
+#  No permission.<br> <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar  {webinarId} not found or has expired.<br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar  {webinarId} not found or has expired.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/meetings/[string meetingId]/survey() returns InlineResponse20039|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2352,19 +2352,19 @@ service /v2 on ep0 {
     # `zoom_rooms`
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Operation Logs Report Returned)
+#  
+# Operation Logs Report Returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/operationlogs(string 'from, string to, string? next_page_token, "all"|"user"|"user_settings"|"account"|"billing"|"im"|"recording"|"phone_contacts"|"webinar"|"sub_account"|"role"|"zoom_rooms"? category_type, int page_size = 30) returns InlineResponse20040|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2388,18 +2388,18 @@ service /v2 on ep0 {
     # + next_page_token - The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Telephone report returned.  
-    #
-    # This is only available for paid account:{accountId}.  
-    #
-    # The requested report cannot be generated for this account because this account has not subscribed to toll-free audio conference plan.  
-    #
-    # Toll Report feature must be enabled to perform this action. Contact the Zoom Support team for help.)
+#  
+# Telephone report returned.  
+#  
+# This is only available for paid account:{accountId}.  
+#  
+# The requested report cannot be generated for this account because this account has not subscribed to toll-free audio conference plan.  
+#  
+# Toll Report feature must be enabled to perform this action. Contact the Zoom Support team for help.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/telephone(string 'from, string to, string? next_page_token, "1"|"2"|"3" 'type = "1", "start_time"|"end_time"|"meeting_start_time"|"meeting_end_time" query_date_type = "start_time", int page_size = 30, int page_number = 1) returns InlineResponse20041|http:TooManyRequests {
     }
 
@@ -2418,27 +2418,27 @@ service /v2 on ep0 {
     # **Note:** The API response will only contain meetings where the host is a member of the queried group ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Upcoming events report returned.  
-    #
-    # )
+#  
+# Upcoming events report returned.  
+#  
+# )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # This is only available for the paid account: {accountId} <br>
-    #
-    # **Error Code:** `300` <br>
-    # The next page token is invalid or expired.
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# This is only available for the paid account: {accountId} <br>
+# 
+# **Error Code:** `300` <br>
+# The next page token is invalid or expired.
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/upcoming_events(string 'from, string to, string? next_page_token, string? group_id, int page_size = 30, "meeting"|"webinar"|"all" 'type = "all") returns InlineResponse20042|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2456,20 +2456,20 @@ service /v2 on ep0 {
     # **Note:** The API response will only contain users who are members of the queried group ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Active or inactive hosts report returned.  
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+#  
+# Active or inactive hosts report returned.  
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/users("active"|"inactive"? 'type, string 'from, string to, string? next_page_token, string? group_id, int page_size = 30, int page_number = 1) returns InlineResponse20043|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2486,34 +2486,34 @@ service /v2 on ep0 {
     # * `pastJoined` &mdash; All past meetings the account's users hosted or joined.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Active or inactive hosts report returned.  
-    #
-    # )
+#  
+# Active or inactive hosts report returned.  
+#  
+# )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # This is only available for paid account:{accountId}.<br>
-    #
-    # **Error Code:** `300` <br>
-    # The next page token is invalid or expired.
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# This is only available for paid account:{accountId}.<br>
+# 
+# **Error Code:** `300` <br>
+# The next page token is invalid or expired.
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} not exist or not belong to this account.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User {userId} not exist or not belong to this account.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/users/[UserId userId]/meetings(string 'from, string to, string? next_page_token, int page_size = 30, "past"|"pastOne"|"pastJoined" 'type = "past") returns InlineResponse20044|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2524,34 +2524,34 @@ service /v2 on ep0 {
     # * If you provide a webinar UUID that begins with a `/` character or contains the `//` characters, you **must** [double encode](https://marketplace.zoom.us/docs/api-reference/using-zoom-apis/#meeting-id-and-uuid) the webinar UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Webinar details returned.  
-    #
-    # This is only available for paid account:{accountId}.)
+#  
+# Webinar details returned.  
+#  
+# This is only available for paid account:{accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}.<br>
-    #
-    # **Error Code:** `12702` <br>
-    # Can not access a webinar a year ago.<br>
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account:{accountId}.<br>
+# 
+# **Error Code:** `12702` <br>
+# Can not access a webinar a year ago.<br>
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting  {meetingId} not found or has expired.<br>
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `3001` <br>
+# Meeting  {meetingId} not found or has expired.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/webinars/[string webinarId]() returns InlineResponse20045|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2566,29 +2566,29 @@ service /v2 on ep0 {
     # * `registrant_id` - Include the registrant's ID in the API response. The registrant ID is the webinar participant's unique ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` 
-    # * Meeting participants report returned.  
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+# * Meeting participants report returned.  
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId} <br>
-    # **Error Code:** `12702` <br>
-    # Can not access a webinar a year ago.<br> <br>
-    # **Error Code:** `200` <br>
-    # No permission.<br> <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId} <br>
+# **Error Code:** `12702` <br>
+#  Can not access a webinar a year ago.<br> <br>
+# **Error Code:** `200` <br>
+#  No permission.<br> <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar "{webinarId}" not found or has expired <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar "{webinarId}" not found or has expired <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/webinars/[string webinarId]/participants(string? next_page_token, "registrant_id"? include_fields, int page_size = 30) returns InlineResponse20046|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2599,36 +2599,36 @@ service /v2 on ep0 {
     # * If you provide a webinar UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the webinar UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Webinar polls report returned.  
-    #
-    # Missing webinar subscription plan.  
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+#  
+# Webinar polls report returned.  
+#  
+# Missing webinar subscription plan.  
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}.<br>
-    #
-    # **Error Code:** `12702` <br>
-    # Can not access a webinar a year ago.<br>
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br>
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account:{accountId}.<br>
+# 
+# **Error Code:** `12702` <br>
+# Can not access a webinar a year ago.<br>
+# 
+# **Error Code:** `200` <br>
+# No permission.<br>
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar  {webinarId} not found or has expired.<br>
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `3001` <br>
+# Webinar  {webinarId} not found or has expired.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/webinars/[string webinarId]/polls() returns InlineResponse20047|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2640,23 +2640,23 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   Webinar Q&A report returned. Only available for Paid or ZMP account: {accountId}.   A report can't be generated for this account because this account is not subscribed to a webinar plan.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission.<br> <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission.<br> <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}.<br> <br>
-    # **Error Code:** `3001` <br>
-    # Webinar  {webinarId} not found or has expired.<br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}.<br> <br>
+# **Error Code:** `3001` <br>
+#  Webinar  {webinarId} not found or has expired.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/webinars/[string webinarId]/qa() returns InlineResponse20048|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2667,32 +2667,32 @@ service /v2 on ep0 {
     # * If you provide a webinar UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the webinar UUID before making an API request.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Webinar survey report returned.  
-    #
-    # Missing webinar subscription plan.  
-    #
-    # Only available for Paid or ZMP account: {accountId}.)
+#  
+# Webinar survey report returned.  
+#  
+# Missing webinar subscription plan.  
+#  
+# Only available for Paid or ZMP account: {accountId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account:{accountId}.<br> <br>
-    # **Error Code:** `12702` <br>
-    # Can not access a webinar a year ago.<br> <br>
-    # **Error Code:** `200` <br>
-    # No permission.<br> <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account:{accountId}.<br> <br>
+# **Error Code:** `12702` <br>
+#  Can not access a webinar a year ago.<br> <br>
+# **Error Code:** `200` <br>
+#  No permission.<br> <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar  {webinarId} not found or has expired.<br> <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar  {webinarId} not found or has expired.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get report/webinars/[string webinarId]/survey() returns InlineResponse20049|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2704,20 +2704,20 @@ service /v2 on ep0 {
     # + next_page_token - The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # SIP Phones listed successfully.
-    #
-    # **Error Code:** `200`  
-    #
-    # Permission missing: Enable SIP Phone Integration by contacting a Zoom Admin first.)
+#  
+# SIP Phones listed successfully.
+# 
+# **Error Code:** `200`  
+#  
+# Permission missing: Enable SIP Phone Integration by contacting a Zoom Admin first.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # )
+#  Bad Request  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get sip_phones(string? search_key, int? page_size, string? next_page_token, int page_number = 1) returns InlineResponse20050|http:BadRequest|http:TooManyRequests {
     }
 
@@ -2725,12 +2725,12 @@ service /v2 on ep0 {
     #
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List of Tracking Fields returned.)
+#  
+# List of Tracking Fields returned.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get tracking_fields() returns InlineResponse20054|http:TooManyRequests {
     }
 
@@ -2740,13 +2740,13 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   Tracking field object returned)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get tracking_fields/[string fieldId]() returns InlineResponse20055|http:NotFound|http:TooManyRequests {
     }
 
@@ -2754,12 +2754,12 @@ service /v2 on ep0 {
     #
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # TSP account detail returned successfully.)
+#  
+# TSP account detail returned successfully.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get tsp() returns InlineResponse20052|http:TooManyRequests {
     }
 
@@ -2768,30 +2768,30 @@ service /v2 on ep0 {
     # + userId - The user ID or email address of the user. For user-level apps, pass the `me` value.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  
-    #
-    # TSP account list returned successfully.)
+#  
+# TSP account list returned successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `2024` <br>
-    # Account has not enabled TSP.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `2024` <br>
+# Account has not enabled TSP.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: $userId.<br>
-    #
-    # **Error Code:** `1120` <br>
-    # A valid invitation to join the Zoom account was not found for this user.<br>
-    # This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User does not exist: $userId.<br>
+# 
+# **Error Code:** `1120` <br>
+# A valid invitation to join the Zoom account was not found for this user.<br>
+# This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[UserId1 userId]/tsp() returns InlineResponse20053|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2801,36 +2801,36 @@ service /v2 on ep0 {
     # + tspId - TSP account ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # TSP account retrieved successfully.)
+#  
+# TSP account retrieved successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # The TSP id provided does not exist.<br>
-    #
-    # **Error Code:** `300` <br>
-    # TSP Config does not exist.<br>
-    #
-    # **Error Code:** `2024` <br>
-    # Account has not enabled TSP.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# The TSP id provided does not exist.<br>
+# 
+# **Error Code:** `300` <br>
+# TSP Config does not exist.<br>
+# 
+# **Error Code:** `2024` <br>
+# Account has not enabled TSP.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: $userId.<br>
-    #
-    # **Error Code:** `1120` <br>
-    # A valid invitation to join the Zoom account was not found for this user.<br>
-    # This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User does not exist: $userId.<br>
+# 
+# **Error Code:** `1120` <br>
+# A valid invitation to join the Zoom account was not found for this user.<br>
+# This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[UserId3 userId]/tsp/["1"|"2" tspId]() returns TSPAccount|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2839,24 +2839,24 @@ service /v2 on ep0 {
     # + userId - The user ID retrievable from the [List users](/api-reference/zoom-api/methods#operation/users) API.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**   
-    # )
+#  )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `1001` <br>
-    # User not exist: {userId}.<br>
-    # User {userId} does not exist or does not belong to this account. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `1001` <br>
+#  User not exist: {userId}.<br>
+# User {userId} does not exist or does not belong to this account. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/meeting_templates() returns InlineResponse20025|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2877,24 +2877,24 @@ service /v2 on ep0 {
     # + timezone - The timezone to assign to the `from` and `to` value. For a list of supported timezones and their formats, see our [timezone list](https://developers.zoom.us/docs/api/rest/other-references/abbreviation-lists/#timezones).
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List of meeting objects returned.)
+#  
+# List of meeting objects returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} not exist or not belong to this account.<br> <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} not exist or not belong to this account.<br> <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/meetings(string? next_page_token, int? page_number, string? 'from, string? to, string? timezone, "scheduled"|"live"|"upcoming"|"upcoming_meetings"|"previous_meetings" 'type = "scheduled", int page_size = 30) returns InlineResponse20026|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2903,24 +2903,24 @@ service /v2 on ep0 {
     # + userId - The user's user ID or email address. For user-level apps, pass the `me` value.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # PAC account list returned.)
+#  
+#  PAC account list returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `2024` <br>
-    # User does not have PAC enabled. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `2024` <br>
+#  User does not have PAC enabled. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: $userId <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: $userId <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/pac() returns InlineResponse20028|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -2944,26 +2944,26 @@ service /v2 on ep0 {
     # + meeting_id - The meeting ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List of recording objects returned.)
+#  
+# List of recording objects returned.)
     # http:Unauthorized (**HTTP Status Code:** `401` <br>
-    # Unauthorized  
-    #
-    # **Error Code:** `124` <br>
-    # Requires an access token. <br>
-    # )
+#  Unauthorized  
+# 
+#  **Error Code:** `124` <br>
+#  Requires an access token. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist, or does not belong to this account. <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this session. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} does not exist, or does not belong to this account. <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this session. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/recordings(string? next_page_token, string? 'from, string? to, int? meeting_id, int page_size = 30, string mc = "false", boolean trash = false, string trash_type = "meeting_recordings") returns InlineResponse2006|http:Unauthorized|http:NotFound|http:TooManyRequests {
     }
 
@@ -2973,9 +2973,9 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` List of upcoming meeting objects returned.)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/upcoming_meetings() returns InlineResponse20027|http:TooManyRequests {
     }
 
@@ -2985,27 +2985,27 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**  List of existing templates returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `300` <br>
-    # You can only create up to 40 webinar templates. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar template name already exists {name}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `300` <br>
+#  You can only create up to 40 webinar templates. <br>
+# **Error Code:** `3000` <br>
+#  Webinar template name already exists {name}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/webinar_templates() returns InlineResponse20059|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3019,26 +3019,26 @@ service /v2 on ep0 {
     # + page_number - **Deprecated** We will no longer support this field in a future release. Instead, use the `next_page_token` for pagination.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List of webinar objects returned.)
+#  
+# List of webinar objects returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get users/[string userId]/webinars("scheduled"|"upcoming" 'type = "scheduled", int page_size = 30, int page_number = 1) returns InlineResponse20060|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3047,30 +3047,30 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Webinar session branding returned.)
+#  
+# Webinar session branding returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # You cannot enable session branding for this webinar. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  You cannot enable session branding for this webinar. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/branding() returns InlineResponse20062|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3079,32 +3079,32 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Webinar live streaming token returned.)
+#  
+# Webinar live streaming token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `124` <br>
-    # This API only supports OAuth2 authorization. <br>
-    # **Error Code:** `3000` <br>
-    # Not allowed to start live streaming. To use this feature, enable the **Allow livestreaming of webinars** setting in the **Settings** page of the Zoom web portal. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `124` <br>
+#  This API only supports OAuth2 authorization. <br>
+# **Error Code:** `3000` <br>
+#  Not allowed to start live streaming. To use this feature, enable the **Allow livestreaming of webinars** setting in the **Settings** page of the Zoom web portal. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/jointoken/live_streaming() returns InlineResponse20063|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3113,32 +3113,32 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Webinar local archiving token returned.)
+#  
+# Webinar local archiving token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `124` <br>
-    # This API only supports OAuth2 authorization. <br>
-    # **Error Code:** `3000` <br>
-    # Not allowed to start local archiving. To use this feature, enable the **Archive meetings and webinars** setting in the **Settings** page of the Zoom web portal. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `124` <br>
+#  This API only supports OAuth2 authorization. <br>
+# **Error Code:** `3000` <br>
+#  Not allowed to start local archiving. To use this feature, enable the **Archive meetings and webinars** setting in the **Settings** page of the Zoom web portal. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/jointoken/local_archiving() returns InlineResponse20064|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3147,32 +3147,32 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Webinar local recording token returned.)
+#  
+# Webinar local recording token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `124` <br>
-    # This API only supports OAuth2 authorization. <br>
-    # **Error Code:** `3000` <br>
-    # Not allowed to start local recording. To use this feature, enable the **Local Recording** setting in the **Settings** page of the Zoom web portal. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `124` <br>
+#  This API only supports OAuth2 authorization. <br>
+# **Error Code:** `3000` <br>
+#  Not allowed to start local recording. To use this feature, enable the **Local Recording** setting in the **Settings** page of the Zoom web portal. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/jointoken/local_recording() returns InlineResponse20065|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3181,28 +3181,28 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Webinar plan subscription missing. Enable webinar for this user once the subscription is added.)
+#  
+# Webinar plan subscription missing. Enable webinar for this user once the subscription is added.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/panelists() returns InlineResponse20067|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3214,30 +3214,30 @@ service /v2 on ep0 {
     # * `false` &mdash; Do not query for polls with the **Anonymous** option enabled.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # List polls of a Webinar  returned)
+#  
+# List polls of a Webinar  returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/polls(boolean? anonymous) returns PollList1|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3247,30 +3247,30 @@ service /v2 on ep0 {
     # + pollId - The poll ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Webinar Poll object returned)
+#  
+# Webinar Poll object returned)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/polls/[string pollId]() returns InlineResponse20068|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3288,26 +3288,26 @@ service /v2 on ep0 {
     # + next_page_token - Use the next page token to paginate through large result sets. A next page token is returned whenever the set of available results exceeds the current page size. This token's expiration period is 15 minutes.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Webinar plan subscription is missing. Enable webinar for this user once the subscription is added:{userId}.)
+#  
+# Webinar plan subscription is missing. Enable webinar for this user once the subscription is added:{userId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/registrants(string? occurrence_id, string? tracking_source_id, string? next_page_token, "pending"|"approved"|"denied" status = "approved", int page_size = 30, int page_number = 1) returns RegistrationList2|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3319,29 +3319,29 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (Success.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `3000` <br>
-    # Registration has not been enabled for this webinar: {webinarId}. <br>
-    # **Error Code:** `3079` <br>
-    # This registrant does not exist: {registrantId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `3000` <br>
+#  Registration has not been enabled for this webinar: {webinarId}. <br>
+# **Error Code:** `3079` <br>
+#  This registrant does not exist: {registrantId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/registrants/[string registrantId](string? occurrence_id) returns WebinarRegistrant|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3351,25 +3351,25 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   Webinar registrant question object returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `3000` <br>
-    # Registration has not been enabled for this webinar: {webinarId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `3000` <br>
+#  Registration has not been enabled for this webinar: {webinarId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/registrants/questions() returns InlineResponse20069|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3378,30 +3378,30 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Webinar survey object returned.)
+#  
+#  Webinar survey object returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar survey disabled. To enable this feature, enable the **Webinar Survey** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `3000` <br>
+#  Webinar survey disabled. To enable this feature, enable the **Webinar Survey** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/survey() returns WebinarSurveyObject|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3413,32 +3413,32 @@ service /v2 on ep0 {
     # This defaults to `closed_caption_token`.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Webinar token returned.)
+#  
+# Webinar token returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `3000` <br>
-    # Closed captioning disabled. To enable this feature, enable the **Closed captioning** and **Allow use of caption API Token to integrate with 3rd-party Closed Captioning services** settings in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar {webinarId} has not started. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `3000` <br>
+#  Closed captioning disabled. To enable this feature, enable the **Closed captioning** and **Allow use of caption API Token to integrate with 3rd-party Closed Captioning services** settings in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `3000` <br>
+#  Webinar {webinarId} has not started. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/token("closed_caption_token" 'type = "closed_caption_token") returns InlineResponse20070|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3448,25 +3448,25 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[int webinarId]/tracking_sources() returns InlineResponse20071|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3477,28 +3477,28 @@ service /v2 on ep0 {
     # + show_previous_occurrences - Set the value of this field to `true` if you would like to view Webinar details of all previous occurrences of a recurring Webinar.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`  
-    #
-    # Success)
+#  
+# Success)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user to perform this action. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user to perform this action. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[string webinarId](string? occurrence_id, boolean? show_previous_occurrences) returns InlineResponse20061|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3508,27 +3508,27 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200` **OK**   Live stream details returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # The current user has not enabled the custom live streaming feature of the webinar. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  The current user has not enabled the custom live streaming feature of the webinar. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests  For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function get webinars/[string webinarId]/livestream() returns InlineResponse20066|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3537,21 +3537,21 @@ service /v2 on ep0 {
     # + fileId - Archived file ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` <br>
-    # auto-delete status updated  
-    #
-    # )
+#  auto-delete status updated  
+# 
+#  )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # )
+#  Bad Request  
+# 
+#  )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch archive_files/[string fileId](@http:Payload ArchiveFilesfileIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3560,34 +3560,34 @@ service /v2 on ep0 {
     # + deviceId - Unique identifier of the device.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` **No Content** 
-    #
-    # Request processed successfully.)
+#  
+# Request processed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `30055001` <br>
-    # zoom room does not exist. . <br>
-    # **Error Code:** `30055002` <br>
-    # required param can not be empty or null. <br>
-    # **Error Code:** `30055003` <br>
-    # device type does not support. <br>
-    # **Error Code:** `30055011` <br>
-    # device is not enrolled. <br>
-    # **Error Code:** `30055013` <br>
-    # device not support this app. <br>
-    # **Error Code:** `30055014` <br>
-    # room not support this app. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `30055001` <br>
+#  zoom room does not exist. . <br>
+# **Error Code:** `30055002` <br>
+#  required param can not be empty or null. <br>
+# **Error Code:** `30055003` <br>
+#  device type does not support. <br>
+# **Error Code:** `30055011` <br>
+#  device is not enrolled. <br>
+# **Error Code:** `30055013` <br>
+#  device not support this app. <br>
+# **Error Code:** `30055014` <br>
+#  room not support this app. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `30055012` <br>
-    # Device does not exist: {deviceId}. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `30055012` <br>
+#  Device does not exist: {deviceId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch devices/[string deviceId](@http:Payload DevicesdeviceIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3596,30 +3596,30 @@ service /v2 on ep0 {
     # + deviceId - The device's unique identifier.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` **No Content**  
-    #
-    # Request processed successfully.)
+#  
+# Request processed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `8500` <br>
-    # Device not enrolled in Zoom Device Management. <br>
-    # **Error Code:** `8501` <br>
-    # Device does not support this app. <br>
-    # **Error Code:** `8502` <br>
-    # Room does not support this app. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `8500` <br>
+#  Device not enrolled in Zoom Device Management. <br>
+# **Error Code:** `8501` <br>
+#  Device does not support this app. <br>
+# **Error Code:** `8502` <br>
+#  Room does not support this app. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1012` <br>
-    # Room does not exist: {roomId}. <br>
-    # **Error Code:** `8503` <br>
-    # Device does not exist: {deviceId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1012` <br>
+#  Room does not exist: {roomId}. <br>
+# **Error Code:** `8503` <br>
+#  Device does not exist: {deviceId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch devices/[string deviceId]/assignment(@http:Payload DeviceIdAssignmentBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3628,19 +3628,19 @@ service /v2 on ep0 {
     # + deviceId - The device ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # H.323/SIP device updated.)
+#  
+# H.323/SIP device updated.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `2020` <br>
-    # H.323 device's display name:{displayName} is already in use.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `2020` <br>
+# H.323 device's display name:{displayName} is already in use.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch h323/devices/[string deviceId](@http:Payload TheH323SIPDeviceObject1 payload) returns http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -3651,23 +3651,23 @@ service /v2 on ep0 {
     # + messageId - The live meeting chat message's unique identifier (UUID), in base64-encoded format.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` <br>
-    # Meeting chat message updated.)
+#  Meeting chat message updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # DLP is not enabled on this account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  DLP is not enabled on this account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting {meetingId} does not exist. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting {meetingId} does not exist. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch live_meetings/[int meetingId]/chat/messages/[string messageId](@http:Payload MessagesmessageIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3676,29 +3676,29 @@ service /v2 on ep0 {
     # + meetingId - The live meeting's ID.
     # + return - returns can be any of following types 
     # http:Accepted (**HTTP Status:** `202` **Accepted**
-    # Request processed successfully.)
+# Request processed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # * Meeting id does not exist.<br>
-    # * Invalid meeting id.<br>
-    # * Meeting does not exist.<br>
-    # * No permission.<br>
-    # * This API is not available for this account, please contact Zoom support. <br>
-    # **Error Code:** `3309` <br>
-    # Not enough cloud storage available. Either purchase additional storage or delete cloud recordings to free up storage. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  * Meeting id does not exist.<br>
+# * Invalid meeting id.<br>
+# * Meeting does not exist.<br>
+# * No permission.<br>
+# * This API is not available for this account, please contact Zoom support. <br>
+# **Error Code:** `3309` <br>
+#  Not enough cloud storage available. Either purchase additional storage or delete cloud recordings to free up storage. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting {meetingId} is not found or has expired. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting {meetingId} is not found or has expired. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch live_meetings/[string meetingId]/events(@http:Payload MeetingIdEventsBody payload) returns http:Accepted|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3710,40 +3710,40 @@ service /v2 on ep0 {
     # + payload - Meeting 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Meeting updated.)
+#  
+# Meeting updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3161` <br>
-    # Your user account is not allowed meeting hosting and scheduling capabilities. <br>
-    # **Error Code:** `300` <br>
-    # The value that you entered in the `schedule_for` field is invalid. Enter a valid value and try again. <br>
-    # **Error Code:** `300` <br>
-    # Invalid `enforce_login_domains`. Separate multiple domains with semicolons. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar info. <br>
-    # **Error Code:** `3000` <br>
-    # Instant meetings do not support the `schedule_for` parameter, and you can't schedule an instant meeting for another user. <br>
-    # **Error Code:** `3000` <br>
-    # Users in '{userId}' have been blocked from joining meetings and webinars. To unblock them, go to the **Settings** page in the Zoom web portal and update **Block users in specific domains from joining meetings and webinars**. <br>
-    # **Error Code:** `3000` <br>
-    # You cannot schedule a meeting for {userId} <br>
-    # **Error Code:** `3000` <br>
-    # Prescheduling is only available for scheduled meetings (type 2) and recurring meetings with no fixed time (type 3). <br>
-    # **Error Code:** `3000` <br>
-    # Unable to schedule for a user outside of your account for a meeting with continuous chat. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3161` <br>
+#  Your user account is not allowed meeting hosting and scheduling capabilities. <br>
+# **Error Code:** `300` <br>
+#  The value that you entered in the `schedule_for` field is invalid. Enter a valid value and try again. <br>
+# **Error Code:** `300` <br>
+#  Invalid `enforce_login_domains`. Separate multiple domains with semicolons. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access webinar info. <br>
+# **Error Code:** `3000` <br>
+#  Instant meetings do not support the `schedule_for` parameter, and you can't schedule an instant meeting for another user. <br>
+# **Error Code:** `3000` <br>
+#  Users in '{userId}' have been blocked from joining meetings and webinars. To unblock them, go to the **Settings** page in the Zoom web portal and update **Block users in specific domains from joining meetings and webinars**. <br>
+# **Error Code:** `3000` <br>
+#  You cannot schedule a meeting for {userId} <br>
+# **Error Code:** `3000` <br>
+#  Prescheduling is only available for scheduled meetings (type 2) and recurring meetings with no fixed time (type 3). <br>
+# **Error Code:** `3000` <br>
+#  Unable to schedule for a user outside of your account for a meeting with continuous chat. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[int meetingId](string? occurrence_id, @http:Payload MeetingsmeetingIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3754,32 +3754,32 @@ service /v2 on ep0 {
     # + payload - Meeting 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Meeting livestream updated.)
+#  
+# Meeting livestream updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}.<br>
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar info.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account: {accountId}.<br>
+# 
+# **Error Code:** `3000` <br>
+# Cannot access webinar info.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User {userId} does not exist.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[int meetingId]/livestream(@http:Payload MeetingIdLivestreamBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3791,29 +3791,29 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` <br> Meeting livestream updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar info. <br>
-    # **Error Code:** `3161` <br>
-    # Your user account is not allowed meeting hosting and scheduling capabilities. <br>
-    # **Error Code:** `4400` <br>
-    # End-to-end encrypted meetings currently do not support the livestreaming feature. <br>
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `4927` <br>
-    # Meeting {meetingId} has not started. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  Cannot access webinar info. <br>
+# **Error Code:** `3161` <br>
+#  Your user account is not allowed meeting hosting and scheduling capabilities. <br>
+# **Error Code:** `4400` <br>
+#  End-to-end encrypted meetings currently do not support the livestreaming feature. <br>
+# **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `4927` <br>
+#  Meeting {meetingId} has not started. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[int meetingId]/livestream/status(@http:Payload LivestreamStatusBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3824,23 +3824,23 @@ service /v2 on ep0 {
     # + payload - Meeting Registrant Questions 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Meeting Registrant Questions Updated)
+#  
+# Meeting Registrant Questions Updated)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # )
+#  Not Found
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[int meetingId]/registrants/questions(@http:Payload RegistrantsQuestionsBody1 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3850,36 +3850,36 @@ service /v2 on ep0 {
     # When storing this value in your database, store it as a long-format integer and **not** a simple integer. Meeting IDs can be over 10 digits.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting survey updated.)
+#  
+#  Meeting survey updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `300` <br>
-    # Invalid third party survey: {third_party_survey}. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access Webinar information. <br>
-    # **Error Code:** `3000` <br>
-    # Meeting survey disabled. To enable this feature, enable the "Meeting Survey" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3000` <br>
-    # Not allowed host to use a 3rd-party survey link. To use this feature, enable the "Allow host to use a 3rd-party survey link" setting in the "Account Settings" page of the Zoom web portal. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `300` <br>
+#  Invalid third party survey: {third_party_survey}. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access Webinar information. <br>
+# **Error Code:** `3000` <br>
+#  Meeting survey disabled. To enable this feature, enable the "Meeting Survey" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3000` <br>
+#  Not allowed host to use a 3rd-party survey link. To use this feature, enable the "Allow host to use a 3rd-party survey link" setting in the "Account Settings" page of the Zoom web portal. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found 
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}. <br>
-    # )
+#  Not Found 
+# 
+#  **Error Code:** `300` <br>
+#  Meeting ID does not exist. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[int meetingId]/survey(@http:Payload MeetingSurveyObject1 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -3891,16 +3891,16 @@ service /v2 on ep0 {
     # + payload - Recording registrant questions. 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `200`  
-    #
-    # Recording registrant questions updated)
+#  
+# Recording registrant questions updated)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[string meetingId]/recordings/registrants/questions(@http:Payload RegistrantsQuestionsBody payload) returns http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -3912,13 +3912,13 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`    Meeting recording setting's updated.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch meetings/[string meetingId]/recordings/settings(@http:Payload RecordingSettings1 payload) returns http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -3928,13 +3928,13 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**Status Code:** `204` SIP phone updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # )
+#  Bad Request  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch sip_phones/[string phoneId](@http:Payload SipPhonesphoneIdBody payload) returns http:NoContent|http:BadRequest|http:TooManyRequests {
     }
 
@@ -3944,13 +3944,13 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   Tracking field updated)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch tracking_fields/[string fieldId](@http:Payload TrackingField1 payload) returns http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -3959,19 +3959,19 @@ service /v2 on ep0 {
     # + payload - TSP Account 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` **No Content**  
-    #
-    # TSP Account updated.)
+#  
+# TSP Account updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # Invalid parameter: tsp_bridge.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# Invalid parameter: tsp_bridge.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch tsp(@http:Payload TspBody payload) returns http:NoContent|http:BadRequest|http:TooManyRequests {
     }
 
@@ -3982,45 +3982,45 @@ service /v2 on ep0 {
     # + payload - TSP account. 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:**`204` **No Content**  
-    #
-    # TSP account updated.)
+#  
+# TSP account updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `2024` <br>
-    # Account has not enabled TSP.<br>
-    #
-    # **Error Code:** `300` <br>
-    # The TSP id provided does not exist.<br>
-    #
-    # **Error Code:** `300` <br>
-    # TSP Config does not exist.<br>
-    #
-    # **Error Code:** `300` <br>
-    # At least one tsp config must be available.<br>
-    #
-    # **Error Code:** `300` <br>
-    # Media link is required for AT&T TSP accounts.
-    #
-    # **Error Code:** `300` <br>
-    # Invalid parameter: tsp_bridge.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `2024` <br>
+# Account has not enabled TSP.<br>
+# 
+# **Error Code:** `300` <br>
+# The TSP id provided does not exist.<br>
+# 
+# **Error Code:** `300` <br>
+# TSP Config does not exist.<br>
+# 
+# **Error Code:** `300` <br>
+# At least one tsp config must be available.<br>
+# 
+# **Error Code:** `300` <br>
+# Media link is required for AT&T TSP accounts.
+# 
+# **Error Code:** `300` <br>
+# Invalid parameter: tsp_bridge.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: $userId.<br>
-    #
-    # **Error Code:** `1120` <br>
-    # A valid invitation to join the Zoom account was not found for this user.<br>
-    # This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User does not exist: $userId.<br>
+# 
+# **Error Code:** `1120` <br>
+# A valid invitation to join the Zoom account was not found for this user.<br>
+# This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch users/[UserId5 userId]/tsp/["1"|"2" tspId](@http:Payload TSPAccount1 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4030,36 +4030,36 @@ service /v2 on ep0 {
     # + payload - Global dial-in URL of the user. 
     # + return - returns can be any of following types 
     # http:NoContent (**Status Code:** `204` **No Content**   
-    #
-    # URL set successfully.)
+#  
+# URL set successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `2000` <br>
-    # Not TSP special account.<br>
-    #
-    # Ths error means that the account does not have special TSP privilege. Contact Zoom Developer Support for details.<br>
-    #
-    # **Error Code:** `2024` <br>
-    # Account not enable TSP
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `2000` <br>
+# Not TSP special account.<br>
+# 
+# Ths error means that the account does not have special TSP privilege. Contact Zoom Developer Support for details.<br>
+# 
+# **Error Code:** `2024` <br>
+# Account not enable TSP
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} not exist or not belong to this account.
-    #
-    # **Error Code:** `1120` <br>
-    # Invite not exist.
-    #
-    # This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User {userId} not exist or not belong to this account.
+# 
+# **Error Code:** `1120` <br>
+# Invite not exist.
+# 
+# This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch users/[string userId]/tsp/settings(@http:Payload TSPGlobalDialInURLSetting payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4070,34 +4070,34 @@ service /v2 on ep0 {
     # + payload - Webinar. 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Webinar updated.)
+#  
+# Webinar updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3003` <br>
-    # Users in **{domains}** have been blocked from joining meetings and webinars. To unblock them, go to the **Settings** page in the Zoom web portal and update the **Block users in specific domains from joining meetings and webinars** setting. <br>
-    # **Error Code:** `3000` <br>
-    # You cannot update or delete simulive webinars that have started using this method. <br>
-    # **Error Code:** `300` <br>
-    # The value that you entered for the `schedule_for` field is invalid. Enter a valid value and try again. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3003` <br>
+#  Users in **{domains}** have been blocked from joining meetings and webinars. To unblock them, go to the **Settings** page in the Zoom web portal and update the **Block users in specific domains from joining meetings and webinars** setting. <br>
+# **Error Code:** `3000` <br>
+#  You cannot update or delete simulive webinars that have started using this method. <br>
+# **Error Code:** `300` <br>
+#  The value that you entered for the `schedule_for` field is invalid. Enter a valid value and try again. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId](string? occurrence_id, @http:Payload WebinarswebinarIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4107,33 +4107,33 @@ service /v2 on ep0 {
     # + nameTagId - The name tag's ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # * No content. 
-    # * Name tag updated.)
+#  
+# * No content. 
+# * Name tag updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # Name Tag does not exist. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  Name Tag does not exist. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId]/branding/name_tags/[string nameTagId](@http:Payload NameTagsnameTagIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4145,29 +4145,29 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`    * No content. * Virtual background updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid parameter: {id} <br>
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid parameter: {id} <br>
+# **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId]/branding/virtual_backgrounds(string? id, boolean? set_default_for_all_panelists) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4177,30 +4177,30 @@ service /v2 on ep0 {
     # + payload - Webinar 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Meeting live stream updated.)
+#  
+# Meeting live stream updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # The current user has not enabled the custom live streaming feature of the webinar. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  The current user has not enabled the custom live streaming feature of the webinar. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId]/livestream(@http:Payload WebinarIdLivestreamBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4210,38 +4210,38 @@ service /v2 on ep0 {
     # + payload - Webinar 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting live stream updated.
-    #
-    # )
+#  
+# Meeting live stream updated.
+# 
+# )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `3000` <br>
-    # The current webinar is not configured with a custom streaming service. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `200` <br>
-    # Webinar {webinarId} has not started. <br>
-    # **Error Code:** `3000` <br>
-    # The current webinar is not configured with a custom streaming service. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `1001` <br>
+#  User does not exist: {userId}. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `3000` <br>
+#  The current webinar is not configured with a custom streaming service. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `200` <br>
+#  Webinar {webinarId} has not started. <br>
+# **Error Code:** `3000` <br>
+#  The current webinar is not configured with a custom streaming service. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId]/livestream/status(@http:Payload LivestreamStatusBody1 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4252,27 +4252,27 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   Webinar registrant questions updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `3000` <br>
-    # Registration has not been enabled for this webinar: {webinarId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `3000` <br>
+#  Registration has not been enabled for this webinar: {webinarId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId]/registrants/questions(@http:Payload RegistrantsQuestionsBody2 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4281,34 +4281,34 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Webinar survey updated.)
+#  
+#  Webinar survey updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `300` <br>
-    # Invalid third party survey: {third_party_survey}. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar survey disabled. To use this feature, enable the **Webinar Survey** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `3000` <br>
-    # The host isn't allowed to use a third party survey link. To use this feature, enable the "Allow host to use a 3rd-party survey link" setting in the "Account Settings" page of the Zoom web portal. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `300` <br>
+#  Invalid third party survey: {third_party_survey}. <br>
+# **Error Code:** `3000` <br>
+#  Webinar survey disabled. To use this feature, enable the **Webinar Survey** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `3000` <br>
+#  The host isn't allowed to use a third party survey link. To use this feature, enable the "Allow host to use a 3rd-party survey link" setting in the "Account Settings" page of the Zoom web portal. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function patch webinars/[int webinarId]/survey(@http:Payload WebinarIdSurveyBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4316,33 +4316,33 @@ service /v2 on ep0 {
     #
     # + return - returns can be any of following types 
     # http:Accepted (**HTTP Status:** `202` **Accepted**
-    # Request processed successfully.)
+# Request processed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request 
-    #
-    # **Error Code:** `30055001` <br>
-    # zoom room does not exist.  <br>
-    # **Error Code:** `30055002` <br>
-    # required param can not be empty or null. <br>
-    # **Error Code:** `30055003` <br>
-    # device type does not support. <br>
-    # **Error Code:** `30055004` <br>
-    # model or vendor not exist. <br>
-    # **Error Code:** `30055005` <br>
-    # tag length can not be more than 64. <br>
-    # **Error Code:** `30055006` <br>
-    # device has already exist. <br>
-    # **Error Code:** `30055007` <br>
-    # invalid mac address. <br>
-    # **Error Code:** `30055008` <br>
-    # no permission. <br>
-    # **Error Code:** `30055009` <br>
-    # email does not have plan. <br>
-    # )
+#  Bad Request 
+# 
+#  **Error Code:** `30055001` <br>
+#  zoom room does not exist.  <br>
+# **Error Code:** `30055002` <br>
+#  required param can not be empty or null. <br>
+# **Error Code:** `30055003` <br>
+#  device type does not support. <br>
+# **Error Code:** `30055004` <br>
+#  model or vendor not exist. <br>
+# **Error Code:** `30055005` <br>
+#  tag length can not be more than 64. <br>
+# **Error Code:** `30055006` <br>
+#  device has already exist. <br>
+# **Error Code:** `30055007` <br>
+#  invalid mac address. <br>
+# **Error Code:** `30055008` <br>
+#  no permission. <br>
+# **Error Code:** `30055009` <br>
+#  email does not have plan. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post devices(@http:Payload DevicesBody payload) returns http:Accepted|http:BadRequest|http:TooManyRequests {
     }
 
@@ -4351,27 +4351,27 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` **No Content**   Request processed successfully.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `30055003` <br>
-    # Device vendor does not support. <br>
-    # **Error Code:** `30055007` <br>
-    # Mac address is wrong. <br>
-    # **Error Code:** `30051039` <br>
-    # Device not exists. <br>
-    # **Error Code:** `30055002` <br>
-    # AUTO RECEPTIONIST user can not assign to device. <br>
-    # **Error Code:** `30055009` <br>
-    # User not have phone plan. <br>
-    # **Error Code:** `30052024` <br>
-    # Extension number not exists. <br>
-    # **Error Code:** `30055002` <br>
-    # Missing required input. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `30055003` <br>
+#  Device vendor does not support. <br>
+# **Error Code:** `30055007` <br>
+#  Mac address is wrong. <br>
+# **Error Code:** `30051039` <br>
+#  Device not exists. <br>
+# **Error Code:** `30055002` <br>
+#  AUTO RECEPTIONIST user can not assign to device. <br>
+# **Error Code:** `30055009` <br>
+#  User not have phone plan. <br>
+# **Error Code:** `30052024` <br>
+#  Extension number not exists. <br>
+# **Error Code:** `30055002` <br>
+#  Missing required input. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post devices/zpa/assignment(@http:Payload ZpaAssignmentBody payload) returns http:NoContent|http:BadRequest|http:TooManyRequests {
     }
 
@@ -4380,21 +4380,21 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Accepted (The upgrade request has been accepted and is currently being processed.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `30052029` <br>
-    # Missing required input: firmware_versions. <br>
-    # **Error Code:** `30055020` <br>
-    # Upgrade type dose not exist. <br>
-    # **Error Code:** `30055018` <br>
-    # Zdm group id dose not exist. <br>
-    # **Error Code:** `30052030` <br>
-    # Missing required input: app_version. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `30052029` <br>
+#  Missing required input: firmware_versions. <br>
+# **Error Code:** `30055020` <br>
+#  Upgrade type dose not exist. <br>
+# **Error Code:** `30055018` <br>
+#  Zdm group id dose not exist. <br>
+# **Error Code:** `30052030` <br>
+#  Missing required input: app_version. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post devices/zpa/upgrade(@http:Payload ZpaUpgradeBody payload) returns http:Accepted|http:BadRequest|http:TooManyRequests {
     }
 
@@ -4403,26 +4403,26 @@ service /v2 on ep0 {
     # + payload - H.323/SIP device. 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # H.323/SIP device created.)
+#  
+# H.323/SIP device created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `200` <br>
-    # No permission.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `200` <br>
+# No permission.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `2020` <br>
-    # H.323 device's display name:{displayName} is already in use.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `2020` <br>
+# H.323 device's display name:{displayName} is already in use.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post h323/devices(@http:Payload TheH323SIPDeviceObject payload) returns InlineResponse2011|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4432,29 +4432,29 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Meeting invitation links created.)
+#  
+# Meeting invitation links created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `300` <br>
-    # * Meeting ID does not exist. 
-    # * Invalid meeting ID.
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar information.
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `300` <br>
+# * Meeting ID does not exist. 
+# * Invalid meeting ID.
+# 
+# **Error Code:** `3000` <br>
+# Cannot access webinar information.
+# 
+# **Error Code:** `3001` <br>
+# Meeting does not exist: {meetingId}
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[int meetingId]/invite_links(@http:Payload MeetingIdInviteLinksBody payload) returns InlineResponse2014|http:BadRequest|http:TooManyRequests {
     }
 
@@ -4465,27 +4465,27 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201` App added.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `3000` <br>
-    # You can only add up to 3 apps. <br>
-    # **Error Code:** `3000` <br>
-    # Meeting {meetingId} has started. <br>
-    # **Error Code:** `3000` <br>
-    # Zoom Apps disabled. To use this feature, enable the 'Zoom Apps Quick Launch Button' setting in the 'Settings' page of the Zoom web portal. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `3000` <br>
+#  You can only add up to 3 apps. <br>
+# **Error Code:** `3000` <br>
+#  Meeting {meetingId} has started. <br>
+# **Error Code:** `3000` <br>
+#  Zoom Apps disabled. To use this feature, enable the 'Zoom Apps Quick Launch Button' setting in the 'Settings' page of the Zoom web portal. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId} <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId} <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[int meetingId]/open_apps() returns InlineResponse2015|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4496,27 +4496,27 @@ service /v2 on ep0 {
     # + payload - The meeting poll object. 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Meeting Poll Created)
+#  
+# Meeting Poll Created)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # * Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. 
-    # * Advanced meeting polls disabled. To enable this feature, enable the "Allow host to create advanced polls and quizzes" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  * Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. 
+# * Advanced meeting polls disabled. To enable this feature, enable the "Allow host to create advanced polls and quizzes" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `404` <br>
-    # Meeting not found <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `404` <br>
+#  Meeting not found <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[int meetingId]/polls(@http:Payload MeetingIdPollsBody payload) returns InlineResponse2016|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4526,16 +4526,16 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Registration submitted.)
+#  
+# Registration submitted.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[int meetingId]/recordings/registrants(@http:Payload RecordingsRegistrantsBody payload) returns InlineResponse201|http:NotFound|http:TooManyRequests {
     }
 
@@ -4546,38 +4546,38 @@ service /v2 on ep0 {
     # + occurrence_ids - A comma-separated list of meeting occurrence IDs. You can get this value with the [Get a meeting](/docs/api-reference/zoom-api/methods#operation/meeting) API.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Meeting registration created.)
+#  
+# Meeting registration created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}
-    #
-    # **Error Code:** `3003` <br>
-    # You are not the meeting host.
-    #
-    # **Error Code:** `3043` <br>
-    # Meeting has reached maximum attendee capacity.
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting info.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account: {accountId}
+# 
+# **Error Code:** `3003` <br>
+# You are not the meeting host.
+# 
+# **Error Code:** `3043` <br>
+# Meeting has reached maximum attendee capacity.
+# 
+# **Error Code:** `3000` <br>
+# Cannot access meeting info.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # Meeting host does not exist: {userId}
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# Meeting host does not exist: {userId}
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[int meetingId]/registrants(string? occurrence_ids, @http:Payload MeetingIdRegistrantsBody payload) returns InlineResponse2017|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4587,28 +4587,28 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Meeting's encoded SIP URI returned.)
+#  
+# Meeting's encoded SIP URI returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid meeting ID. <br>
-    # **Error Code:** `3000` <br>
-    # The meeting's SIP URI does not exist: {meetingId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid meeting ID. <br>
+# **Error Code:** `3000` <br>
+#  The meeting's SIP URI does not exist: {meetingId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `300` <br>
-    # Meeting ID does not exist. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId} <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `300` <br>
+#  Meeting ID does not exist. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId} <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[int meetingId]/sip_dialing(@http:Payload MeetingIdSipDialingBody payload) returns InlineResponse20019Ok|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4617,30 +4617,30 @@ service /v2 on ep0 {
     # + payload - The batch meeting poll object 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Meeting Poll Created)
+#  
+# Meeting Poll Created)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid Meeting ID. <br>
-    # **Error Code:** `300` <br>
-    # Meeting id does not exist. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting information. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}.<br> <br>
-    # **Error Code:** `4400` <br>
-    # * You can only add a maximum of 50 polls. 
-    # * Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. 
-    # * Advanced meeting polls disabled. To enable this feature, enable the "Allow host to create advanced polls and quizzes" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid Meeting ID. <br>
+# **Error Code:** `300` <br>
+#  Meeting id does not exist. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access meeting information. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId}.<br> <br>
+# **Error Code:** `4400` <br>
+#  * You can only add a maximum of 50 polls. 
+# * Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. 
+# * Advanced meeting polls disabled. To enable this feature, enable the "Allow host to create advanced polls and quizzes" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[string meetingId]/batch_polls(@http:Payload MeetingIdBatchPollsBody payload) returns InlineResponse2012|http:BadRequest|http:TooManyRequests {
     }
 
@@ -4649,38 +4649,38 @@ service /v2 on ep0 {
     # + meetingId - Unique identifier of the meeting (Meeting Number).
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `200` **OK**   
-    #
-    # Registrants added.)
+#  
+# Registrants added.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `3038` <br>
-    # Meeting is over, you can not register now. If you have any questions, please contact the Meeting host.<br><br>
-    #
-    # **Error Code:** `303` <br>
-    # This API can only be used for scheduled meeting(meeting type: 2). Batch registration is not supported for other meeting types.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `3038` <br>
+# Meeting is over, you can not register now. If you have any questions, please contact the Meeting host.<br><br>
+# 
+# **Error Code:** `303` <br>
+# This API can only be used for scheduled meeting(meeting type: 2). Batch registration is not supported for other meeting types.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId}.<br>
-    #
-    # **Error Code:** `3043` <br>
-    # Meeting has reached maximum attendee capacity.<br>
-    #
-    # **Error Code:** `404` <br>
-    # Registration has not been enabled for this meeting: {meetingId}.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `3001` <br>
+# Meeting does not exist: {meetingId}.<br>
+# 
+# **Error Code:** `3043` <br>
+# Meeting has reached maximum attendee capacity.<br>
+# 
+# **Error Code:** `404` <br>
+# Registration has not been enabled for this meeting: {meetingId}.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post meetings/[string meetingId]/batch_registrants(@http:Payload MeetingIdBatchRegistrantsBody payload) returns InlineResponse2013|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4688,27 +4688,27 @@ service /v2 on ep0 {
     #
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # SIP Phone Created.
-    # )
+#  
+# SIP Phone Created.
+# )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Permission missing: Enable SIP Phone Integration by contacting a Zoom Admin first.<br> <br>
-    # **Error Code:** `300` <br>
-    # SIP Phone with the same email already exists. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Permission missing: Enable SIP Phone Integration by contacting a Zoom Admin first.<br> <br>
+# **Error Code:** `300` <br>
+#  SIP Phone with the same email already exists. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} not exist or not belong to this account. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} not exist or not belong to this account. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post sip_phones(@http:Payload SipPhonesBody payload) returns InlineResponse20110|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4717,12 +4717,12 @@ service /v2 on ep0 {
     # + payload - Tracking Field 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Tracking Field created)
+#  
+# Tracking Field created)
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post tracking_fields(@http:Payload TrackingField payload) returns InlineResponse20112|http:TooManyRequests {
     }
 
@@ -4732,36 +4732,36 @@ service /v2 on ep0 {
     # + payload - TSP account. 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # TSP account added.)
+#  
+# TSP account added.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `2024` <br>
-    # Account has not enabled TSP.<br>
-    #
-    # **Error Code:** `300` <br>
-    # Media link is required for AT&T TSP accounts.<br>
-    #
-    # **Error Code:** `300` <br>
-    # You can add a max of two tsp configs.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `2024` <br>
+# Account has not enabled TSP.<br>
+# 
+# **Error Code:** `300` <br>
+# Media link is required for AT&T TSP accounts.<br>
+# 
+# **Error Code:** `300` <br>
+# You can add a max of two tsp configs.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: $userId.<br>
-    #
-    # **Error Code:** `1120` <br>
-    # A valid invitation to join the Zoom account was not found for this user.<br>
-    # This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User does not exist: $userId.<br>
+# 
+# **Error Code:** `1120` <br>
+# A valid invitation to join the Zoom account was not found for this user.<br>
+# This error is thrown if you added a user in your account but the user did not accept the invitation on time and the invitation expired - thus making the userId invalid.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post users/[UserId2 userId]/tsp(@http:Payload TSPAccountsList payload) returns InlineResponse20111|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4770,32 +4770,32 @@ service /v2 on ep0 {
     # + userId - The user ID retrievable from the [List users](/docs/api/rest/reference/user/methods/#operation/users) API.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Meeting template created.)
+#  
+# Meeting template created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # You can only create up to 40 meeting templates. <br>
-    # **Error Code:** `3001` <br>
-    # Meeting does not exist: {meetingId} <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access webinar information. <br>
-    # **Error Code:** `3000` <br>
-    # Meeting template name already exists: {templateName}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  You can only create up to 40 meeting templates. <br>
+# **Error Code:** `3001` <br>
+#  Meeting does not exist: {meetingId} <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access webinar information. <br>
+# **Error Code:** `3000` <br>
+#  Meeting template name already exists: {templateName}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post users/[string userId]/meeting_templates(@http:Payload UserIdMeetingTemplatesBody payload) returns InlineResponse2018|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4805,34 +4805,34 @@ service /v2 on ep0 {
     # + payload - Meeting object. 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Meeting created.)
+#  
+# Meeting created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3161` <br>
-    # Your user account is not allowed meeting hosting and scheduling capabilities. <br>
-    # **Error Code:** `3000` <br>
-    # Instant meetings do not support the `schedule_for` parameter, and you can't schedule an instant meeting for another user. <br>
-    # **Error Code:** `3000` <br>
-    # Users in '{userId}' have been blocked from joining meetings and webinars. To unblock them, go to the **Settings** page in the Zoom web portal and update **Block users in specific domains from joining meetings and webinars**. <br>
-    # **Error Code:** `3000` <br>
-    # You cannot schedule a meeting for {userId} <br>
-    # **Error Code:** `300` <br>
-    # The value that you entered in the `schedule_for` field is invalid. Enter a valid value and try again. <br>
-    # **Error Code:** `300` <br>
-    # Invalid `enforce_login_domains`. Separate multiple domains with semicolons. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3161` <br>
+#  Your user account is not allowed meeting hosting and scheduling capabilities. <br>
+# **Error Code:** `3000` <br>
+#  Instant meetings do not support the `schedule_for` parameter, and you can't schedule an instant meeting for another user. <br>
+# **Error Code:** `3000` <br>
+#  Users in '{userId}' have been blocked from joining meetings and webinars. To unblock them, go to the **Settings** page in the Zoom web portal and update **Block users in specific domains from joining meetings and webinars**. <br>
+# **Error Code:** `3000` <br>
+#  You cannot schedule a meeting for {userId} <br>
+# **Error Code:** `300` <br>
+#  The value that you entered in the `schedule_for` field is invalid. Enter a valid value and try again. <br>
+# **Error Code:** `300` <br>
+#  Invalid `enforce_login_domains`. Separate multiple domains with semicolons. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post users/[string userId]/meetings(@http:Payload UserIdMeetingsBody payload) returns InlineResponse2019|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4841,32 +4841,32 @@ service /v2 on ep0 {
     # + userId - The user ID retrievable from the [List users](/api-reference/zoom-api/methods#operation/users) API.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Webinar template created.)
+#  
+# Webinar template created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # You can only create up to 40 webinar templates. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting info. <br>
-    # **Error Code:** `3000` <br>
-    # Webinar template name already exists: {templateName}. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  You can only create up to 40 webinar templates. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access meeting info. <br>
+# **Error Code:** `3000` <br>
+#  Webinar template name already exists: {templateName}. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post users/[string userId]/webinar_templates(@http:Payload UserIdWebinarTemplatesBody payload) returns InlineResponse20113|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4875,36 +4875,36 @@ service /v2 on ep0 {
     # + userId - The user ID or email address of the user. For user-level apps, pass the `me` value.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Webinar created.)
+#  
+# Webinar created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action: {userId}. <br>
-    # **Error Code:** `300` <br>
-    # The value that you entered for the schedule_for field is invalid. Enter a valid value and try again. <br>
-    # **Error Code:** `300` <br>
-    # Can not schedule simulive webinar for others. <br>
-    # **Error Code:** `300` <br>
-    # Account hasn't enabled Simulive Webinar. <br>
-    # **Error Code:** `300` <br>
-    # Record file does not exist. <br>
-    # **Error Code:** `3000` <br>
-    # You cannot schedule a meeting for {userId}. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action: {userId}. <br>
+# **Error Code:** `300` <br>
+#  The value that you entered for the schedule_for field is invalid. Enter a valid value and try again. <br>
+# **Error Code:** `300` <br>
+#  Can not schedule simulive webinar for others. <br>
+# **Error Code:** `300` <br>
+#  Account hasn't enabled Simulive Webinar. <br>
+# **Error Code:** `300` <br>
+#  Record file does not exist. <br>
+# **Error Code:** `3000` <br>
+#  You cannot schedule a meeting for {userId}. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post users/[string userId]/webinars(@http:Payload UserIdWebinarsBody payload) returns InlineResponse20114|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4913,32 +4913,32 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Name tag created.)
+#  
+# Name tag created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `3000` <br>
-    # You have reached the limit for the number of name tags you can add for this webinar. The limit is 20. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `3000` <br>
+#  You have reached the limit for the number of name tags you can add for this webinar. The limit is 20. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/branding/name_tags(@http:Payload BrandingNameTagsBody payload) returns InlineResponse20116|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4948,35 +4948,35 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`    Virtual background uploaded.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `120` <br>
-    # You may only upload JPG/JPEG, GIF, or PNG image files. <br>
-    # **Error Code:** `120` <br>
-    # No file uploaded. Verify that a file has been uploaded. <br>
-    # **Error Code:** `120` <br>
-    # File size cannot exceed 15M. <br>
-    # **Error Code:** `120` <br>
-    # A maximum of 10 files are allowed for a webinar. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `120` <br>
+#  You may only upload JPG/JPEG, GIF, or PNG image files. <br>
+# **Error Code:** `120` <br>
+#  No file uploaded. Verify that a file has been uploaded. <br>
+# **Error Code:** `120` <br>
+#  File size cannot exceed 15M. <br>
+# **Error Code:** `120` <br>
+#  A maximum of 10 files are allowed for a webinar. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/branding/virtual_backgrounds(http:Request request) returns InlineResponse20117|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -4985,36 +4985,36 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Webinar wallpaper uploaded.)
+#  
+# Webinar wallpaper uploaded.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # This webinar does not have session branding enabled. <br>
-    # **Error Code:** `120` <br>
-    # No file uploaded. Verify that a file has been uploaded. <br>
-    # **Error Code:** `120` <br>
-    # File size cannot exceed 15M. <br>
-    # **Error Code:** `120` <br>
-    # You can only upload JPG/JPEG, GIF, or PNG image files. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  This webinar does not have session branding enabled. <br>
+# **Error Code:** `120` <br>
+#  No file uploaded. Verify that a file has been uploaded. <br>
+# **Error Code:** `120` <br>
+#  File size cannot exceed 15M. <br>
+# **Error Code:** `120` <br>
+#  You can only upload JPG/JPEG, GIF, or PNG image files. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/branding/wallpaper(http:Request request) returns InlineResponse20118|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5024,28 +5024,28 @@ service /v2 on ep0 {
     # + payload - Webinar invite link object. 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Webinar Invite Links Created)
+#  
+# Webinar Invite Links Created)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid Webinar Id. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid Webinar Id. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/invite_links(@http:Payload WebinarIdInviteLinksBody payload) returns InlineResponse2014|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5054,30 +5054,30 @@ service /v2 on ep0 {
     # + webinarId - The webinar's ID.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Panelist created.)
+#  
+# Panelist created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # You have reached the limit for the number of panelists you can add. Contact Zoom Support for more information. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  You have reached the limit for the number of panelists you can add. Contact Zoom Support for more information. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/panelists(@http:Payload WebinarIdPanelistsBody payload) returns InlineResponse20119|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5087,30 +5087,30 @@ service /v2 on ep0 {
     # + payload - The Webinar poll object. 
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  
-    #
-    # Webinar Poll Created)
+#  
+# Webinar Poll Created)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/polls(@http:Payload WebinarIdPollsBody payload) returns InlineResponse20120|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5120,42 +5120,42 @@ service /v2 on ep0 {
     # + occurrence_ids - A comma-separated list of webinar occurrence IDs. Get this value with the [Get a webinar](/docs/api/rest/reference/zoom-api/methods/#operation/webinar) API. Make sure the `registration_type` is 3 if updating multiple occurrences with this API.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`   
-    #
-    # Webinar registration created.)
+#  
+# Webinar registration created.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3000` <br>
-    # This webinar does not have registration as required: {webinarId}. <br>
-    # **Error Code:** `3027` <br>
-    # Host cannot register. <br>
-    # **Error Code:** `3034` <br>
-    # If you have been invited, please input your work email address. <br>
-    # **Error Code:** `3038` <br>
-    # Webinar is over, you cannot register now. If you have any questions, contact the webinar host. <br>
-    # **Error Code:** `3000` <br>
-    # You have reached the limit for the number of attendees you can add. Contact Zoom Support for more information. <br>
-    # **Error Code:** `3000` <br>
-    # The Zoom REST API does not support paid registration. <br>
-    # **Error Code:** `3000` <br>
-    # You have been invited as a panelist for the webinar, please check your email to find more information about this webinar. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3000` <br>
+#  This webinar does not have registration as required: {webinarId}. <br>
+# **Error Code:** `3027` <br>
+#  Host cannot register. <br>
+# **Error Code:** `3034` <br>
+#  If you have been invited, please input your work email address. <br>
+# **Error Code:** `3038` <br>
+#  Webinar is over, you cannot register now. If you have any questions, contact the webinar host. <br>
+# **Error Code:** `3000` <br>
+#  You have reached the limit for the number of attendees you can add. Contact Zoom Support for more information. <br>
+# **Error Code:** `3000` <br>
+#  The Zoom REST API does not support paid registration. <br>
+# **Error Code:** `3000` <br>
+#  You have been invited as a panelist for the webinar, please check your email to find more information about this webinar. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/registrants(string? occurrence_ids, @http:Payload WebinarIdRegistrantsBody payload) returns InlineResponse20121|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5166,19 +5166,19 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `201`  Webinar's encoded SIP URI returned.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting information. <br>
-    # **Error Code:** `3000` <br>
-    # The webinar's SIP URI does not exist: {webinarId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `3000` <br>
+#  Cannot access meeting information. <br>
+# **Error Code:** `3000` <br>
+#  The webinar's SIP URI does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[int webinarId]/sip_dialing(@http:Payload WebinarIdSipDialingBody payload) returns InlineResponse20122|http:BadRequest|http:TooManyRequests {
     }
 
@@ -5187,40 +5187,40 @@ service /v2 on ep0 {
     # + webinarId - The webinar's unique identifier.
     # + return - returns can be any of following types 
     # http:Created (**HTTP Status Code:** `200` **OK**   
-    #
-    # Registrants added.)
+#  
+# Registrants added.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # This API can only be used for scheduled webinars (type 5). Batch registration is not supported for other webinar types. <br>
-    # **Error Code:** `3038` <br>
-    # The webinar is over. You cannot register now. If you have any questions, contact the webinar's host. <br>
-    # **Error Code:** `3000` <br>
-    # You have reached the limit for the number of attendees you can add. Contact Zoom Support for more information. <br>
-    # **Error Code:** `3000` <br>
-    # The Zoom REST API does not support paid registration. <br>
-    # **Error Code:** `3043` <br>
-    # Webinar has reached maximum attendee capacity. <br>
-    # **Error Code:** `3000` <br>
-    # Registration has not been enabled for this webinar: {webinarId}. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  This API can only be used for scheduled webinars (type 5). Batch registration is not supported for other webinar types. <br>
+# **Error Code:** `3038` <br>
+#  The webinar is over. You cannot register now. If you have any questions, contact the webinar's host. <br>
+# **Error Code:** `3000` <br>
+#  You have reached the limit for the number of attendees you can add. Contact Zoom Support for more information. <br>
+# **Error Code:** `3000` <br>
+#  The Zoom REST API does not support paid registration. <br>
+# **Error Code:** `3043` <br>
+#  Webinar has reached maximum attendee capacity. <br>
+# **Error Code:** `3000` <br>
+#  Registration has not been enabled for this webinar: {webinarId}. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function post webinars/[string webinarId]/batch_registrants(@http:Payload WebinarIdBatchRegistrantsBody payload) returns InlineResponse20115|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5232,27 +5232,27 @@ service /v2 on ep0 {
     # + payload - The meeting poll. 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    #
-    # Meeting Poll Updated)
+#  
+# Meeting Poll Updated)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # * Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. 
-    # * Advanced meeting polls disabled. To enable this feature, enable the "Allow host to create advanced polls and quizzes" setting in the Zoom web portal's "Settings" interface. <br>
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  * Meeting polls disabled. To enable this feature, enable the "Meeting Polls/Quizzes" setting in the Zoom web portal's "Settings" interface. 
+# * Advanced meeting polls disabled. To enable this feature, enable the "Allow host to create advanced polls and quizzes" setting in the Zoom web portal's "Settings" interface. <br>
+# **Error Code:** `3161` <br>
+#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `404` <br>
-    # Meeting Poll not found <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `404` <br>
+#  Meeting Poll not found <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put meetings/[int meetingId]/polls/[string pollId](@http:Payload PollspollIdBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5262,16 +5262,16 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Registrant status updated.)
+#  
+# Registrant status updated.)
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # )
+#  Not Found  
+# 
+#  )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put meetings/[int meetingId]/recordings/registrants/status(@http:Payload RegistrantsStatusBody payload) returns http:NoContent|http:NotFound|http:TooManyRequests {
     }
 
@@ -5282,35 +5282,35 @@ service /v2 on ep0 {
     # + occurrence_id - The meeting or webinar occurrence ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Registrant status updated.)
+#  
+# Registrant status updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}.<br>
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting information.<br>
-    #
-    # **Error Code:** `3003` <br>
-    # You're not the meeting host.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account: {accountId}.<br>
+# 
+# **Error Code:** `3000` <br>
+# Cannot access meeting information.<br>
+# 
+# **Error Code:** `3003` <br>
+# You're not the meeting host.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}.<br>
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# User does not exist: {userId}.<br>
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put meetings/[int meetingId]/registrants/status(string? occurrence_id, @http:Payload RegistrantsStatusBody1 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5320,38 +5320,38 @@ service /v2 on ep0 {
     # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Meeting updated.)
+#  
+# Meeting updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}.
-    #
-    # **Error Code:** `3000` <br>
-    # Cannot access meeting info.
-    #
-    # **Error Code:** `3003` <br>
-    # You're not the meeting host.
-    #
-    # **Error Code:** `3063` <br>
-    # Can not end on-premise user's meeting: {meetingId}.
-    #
-    # **Error Code:** `3161` <br>
-    # Meeting hosting and scheduling capabilities are not allowed for your user account.
-    #
-    # )
+#  Bad Request
+# 
+# **Error Code:** `1010` <br>
+# User does not belong to this account: {accountId}.
+# 
+# **Error Code:** `3000` <br>
+# Cannot access meeting info.
+# 
+# **Error Code:** `3003` <br>
+# You're not the meeting host.
+# 
+# **Error Code:** `3063` <br>
+# Can not end on-premise user's meeting: {meetingId}.
+# 
+# **Error Code:** `3161` <br>
+# Meeting hosting and scheduling capabilities are not allowed for your user account.
+# 
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found
-    #
-    # **Error Code:** `1001` <br>
-    # Meeting host does not exist: {userId}.
-    #
-    # )
+#  Not Found
+# 
+# **Error Code:** `1001` <br>
+# Meeting host does not exist: {userId}.
+# 
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put meetings/[int meetingId]/status(@http:Payload MeetingIdStatusBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5363,29 +5363,29 @@ service /v2 on ep0 {
     # + recordingId - The recording ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`   
-    # Meeting recording recovered.
-    #
-    # )
+#   Meeting recording recovered.
+# 
+# )
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}. <br>
-    # **Error Code:** `3309` <br>
-    # Not enough cloud storage available. Either purchase additional storage or delete cloud recordings to free up storage. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId}. <br>
+# **Error Code:** `3309` <br>
+#  Not enough cloud storage available. Either purchase additional storage or delete cloud recordings to free up storage. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User {userId} does not exist or does not belong to this account.<br> <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User {userId} does not exist or does not belong to this account.<br> <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put meetings/[string meetingId]/recordings/[string recordingId]/status(@http:Payload RecordingIdStatusBody payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5395,32 +5395,32 @@ service /v2 on ep0 {
     # If the meeting UUID begins with a `/` character or contains a `//` character, you **must** double-encode the meeting UUID when using the meeting UUID for other API calls.
     # + return - returns can be any of following types 
     # http:Ok (**HTTP Status Code:** `200`   
-    #
-    # Recordings recovered. 
-    #
-    # **Error Code:** `200`  
-    #
-    # You do not have the right permissions.)
+#  
+# Recordings recovered. 
+# 
+# **Error Code:** `200`  
+#  
+# You do not have the right permissions.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `1010` <br>
-    # User does not belong to this account: {accountId}. <br>
-    # **Error Code:** `3309` <br>
-    # Not enough cloud storage available. Either purchase additional storage or delete cloud recordings to free up storage. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `1010` <br>
+#  User does not belong to this account: {accountId}. <br>
+# **Error Code:** `3309` <br>
+#  Not enough cloud storage available. Either purchase additional storage or delete cloud recordings to free up storage. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `1001` <br>
-    # User does not exist: {userId}.<br> <br>
-    # **Error Code:** `3301` <br>
-    # There is no recording for this meeting. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `1001` <br>
+#  User does not exist: {userId}.<br> <br>
+# **Error Code:** `3301` <br>
+#  There is no recording for this meeting. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put meetings/[string meetingUUID]/recordings/status(@http:Payload RecordingsStatusBody payload) returns http:Ok|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5431,30 +5431,30 @@ service /v2 on ep0 {
     # + payload - The webinar poll. 
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204`  
-    #
-    # Webinar Poll Updated)
+#  
+# Webinar Poll Updated)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `4400` <br>
-    # Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface.  <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `4400` <br>
+#  Webinar polls disabled. To enable this feature, enable the **Webinar Polls/Quizzes** setting in the Zoom web portal's **Settings** interface.  <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put webinars/[int webinarId]/polls/[string pollId](@http:Payload PollspollIdBody1 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5464,31 +5464,31 @@ service /v2 on ep0 {
     # + occurrence_id - The meeting or webinar occurrence ID.
     # + return - returns can be any of following types 
     # http:NoContent (**HTTP Status Code:** `204` <br>
-    # Registrant status updated.)
+#  Registrant status updated.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3035` <br>
-    # Webinar has reached maximum attendee capacity. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # **Error Code:** `300` <br>
-    # Registration has not been enabled for this meeting: {webinarId}. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3035` <br>
+#  Webinar has reached maximum attendee capacity. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# **Error Code:** `300` <br>
+#  Registration has not been enabled for this meeting: {webinarId}. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put webinars/[int webinarId]/registrants/status(string? occurrence_id, @http:Payload RegistrantsStatusBody2 payload) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 
@@ -5498,27 +5498,27 @@ service /v2 on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (Webinar plan subscription is missing. Enable webinar for this user once the subscription is added: {userId}.)
     # http:BadRequest (**HTTP Status Code:** `400` <br>
-    # Bad Request  
-    #
-    # **Error Code:** `3063` <br>
-    # You can not end an on-premise user's meeting: {webinarId} using this API. <br>
-    # **Error Code:** `300` <br>
-    # Invalid webinar ID. <br>
-    # **Error Code:** `200` <br>
-    # No permission. <br>
-    # **Error Code:** `200` <br>
-    # Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-    # )
+#  Bad Request  
+# 
+#  **Error Code:** `3063` <br>
+#  You can not end an on-premise user's meeting: {webinarId} using this API. <br>
+# **Error Code:** `300` <br>
+#  Invalid webinar ID. <br>
+# **Error Code:** `200` <br>
+#  No permission. <br>
+# **Error Code:** `200` <br>
+#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
+# )
     # http:NotFound (**HTTP Status Code:** `404` <br>
-    # Not Found  
-    #
-    # **Error Code:** `3001` <br>
-    # Webinar does not exist: {webinarId}. <br>
-    # )
+#  Not Found  
+# 
+#  **Error Code:** `3001` <br>
+#  Webinar does not exist: {webinarId}. <br>
+# )
     # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-    # Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-    #
-    # )
+#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
+# 
+#  )
     resource function put webinars/[int webinarId]/status(@http:Payload WebinarIdStatusBody payload) returns http:Ok|http:BadRequest|http:NotFound|http:TooManyRequests {
     }
 }
