@@ -15698,6 +15698,16 @@
           },
           {
             "$ref": "#/components/schemas/InlineResponse2003InlineResponse2003InlineResponse2003AllOf123"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "recording_play_passcode": {
+                "type": "string",
+                "description": "The cloud recording's passcode to be used in the URL. Directly splice this recording's passcode in `play_url` or `share_url` with `?pwd=` to access and play. Example: 'https://zoom.us/rec/share/**************?pwd=yNYIS408EJygs7rE5vVsJwXIz4-VW7MH'.",
+                "example": "yNYIS408EJygs7rE5vVsJwXIz4-VW7MH"
+              }
+            }
           }
         ]
       },
