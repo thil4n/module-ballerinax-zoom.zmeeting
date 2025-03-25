@@ -7571,6 +7571,11 @@ public type RegistrationList1Registrants record {
     *RegistrantsAllOf1;
     *RegistrantsRegistrantsAllOf12;
     *RegistrantsRegistrantsRegistrantsAllOf123;
+    # The registrant's status. 
+    # * `approved` - Registrant is approved. 
+    # * `denied` - Registrant is denied. 
+    # * `pending` - Registrant is waiting for approval.
+    "approved"|"denied"|"pending" status?;
 };
 
 public type InlineResponse20048 record {
