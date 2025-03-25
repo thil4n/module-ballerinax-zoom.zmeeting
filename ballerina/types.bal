@@ -7524,6 +7524,8 @@ public type InlineResponse20045 record {
 public type InlineResponse20044 record {
     *InlineResponse20044AllOf1;
     *InlineResponse20044InlineResponse20044AllOf12;
+    # The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes.
+    string next_page_token?;
 };
 
 public type InlineResponse20047 record {
