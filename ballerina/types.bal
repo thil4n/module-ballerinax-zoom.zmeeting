@@ -4618,6 +4618,11 @@ public type MeetingRegistrant record {
     *MeetingRegistrantAllOf1;
     *MeetingRegistrantMeetingRegistrantAllOf12;
     *MeetingRegistrantMeetingRegistrantMeetingRegistrantAllOf123;
+    # The registrant's registration status.
+    # * `approved` - The registrant is approved to join the meeting. 
+    # * `pending` - The registrant's registration is pending.
+    # * `denied` - The registrant was declined to join the meeting.
+    "approved"|"pending"|"denied" status?;
 };
 
 public type InlineResponse20068AllOf1 record {
