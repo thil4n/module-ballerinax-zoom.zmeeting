@@ -21202,6 +21202,21 @@
           },
           {
             "$ref": "#/components/schemas/RegistrantsRegistrantsRegistrantsAllOf1123"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "The registrant's status. \n* `approved` - Registrant is approved. \n* `denied` - Registrant is denied. \n* `pending` - Registrant is waiting for approval.",
+                "example": "approved",
+                "enum": [
+                  "approved",
+                  "denied",
+                  "pending"
+                ]
+              }
+            }
           }
         ]
       },

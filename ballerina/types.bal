@@ -3491,6 +3491,11 @@ public type RegistrationList2Registrants record {
     *RegistrantsAllOf11;
     *RegistrantsRegistrantsAllOf112;
     *RegistrantsRegistrantsRegistrantsAllOf1123;
+    # The registrant's status. 
+    # * `approved` - Registrant is approved. 
+    # * `denied` - Registrant is denied. 
+    # * `pending` - Registrant is waiting for approval.
+    "approved"|"denied"|"pending" status?;
 };
 
 public type InlineResponse20042UpcomingEvents record {
