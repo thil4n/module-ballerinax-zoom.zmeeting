@@ -22,15 +22,19 @@ import ballerina/test;
 configurable string clientId = ?;
 configurable string clientSecret = ?;
 configurable string refreshToken = ?;
+configurable string refreshUrl = ?;
 
 string serviceUrl = "https://api.zoom.us/v2/";
+
 
 OAuth2RefreshTokenGrantConfig auth = {
     clientId,
     clientSecret,
     refreshToken,
-    credentialBearer: oauth2:POST_BODY_BEARER
+    credentialBearer: oauth2:POST_BODY_BEARER,
+    refreshUrl
 };
+
 
 // Global Client configuration for HTTP communication
 ConnectionConfig config = {
